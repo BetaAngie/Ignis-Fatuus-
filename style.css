@@ -1,43 +1,235 @@
-html,
-body {
-    margin: 0;
+h1 {
+    font-family: "UnifrakturCook", cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #89CFF0;
+
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    box-sizing: border-box;
+
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+
+    border-bottom: 2px dotted #5DADE2;
+
+    text-shadow:
+        0 0 5px #89CFF0,
+        0 0 10px #89CFF0,
+        0 0 20px #5DADE2,
+        2px 2px 4px rgba(0,0,0,0.8);
+
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 5px #89CFF0,
+            0 0 10px #87CEFA,
+            2px 2px 4px rgba(0,0,0,0.8);
+    }
+    to {
+        text-shadow:
+            0 0 10px #89CFF0,
+            0 0 20px #87CEFA,
+            0 0 35px #87CEFA,
+            2px 2px 4px rgba(0,0,0,0.8);
+    }
+}
+
+html {
     height: 100%;
+    box-sizing: border-box;
+    border: 8px solid #0f242e;
+}
+
+html,
+body:after {
+    content: "✦";
+    position: fixed;
+
+    top: 50px;
+    left: 50px;
+
+    color: #89CFF0;
+    font-size: 30px;
+
+    text-shadow: 0 0 15px #89CFF0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 body {
-    background: url("images/NiviaBackground.gif") center center / cover no-repeat;
     display: flex;
-    align-items: center;      /* Centers menu vertically */
+    align-items: center;
+    justify-content: flex-start;
     min-height: 100vh;
 }
 
-.menu-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+body::before {
+    content: "";
+    position: fixed;
 
-    margin-left: 60px;        /* Distance from the left edge */
+    inset: 0;
+
+    background-image: url("images/NiviaBackground.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -2;
 }
 
-h1 {
-    color: white;
-    font-size: 4rem;
-    margin-bottom: 20px;
+.menu-actions {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+    gap: 15px;
+
+    margin-left: 12vw;
+    padding: 45px 35px;
+       width: 380px;
+max-width: 90vw;
+box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border: 2px solid rgba(137,207,240,.35);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(137,207,240,.15),
+        0 0 40px rgba(0,0,0,.7);
 }
 
 .btn {
     display: block;
     width: 220px;
     padding: 15px;
+    margin: 10px 0;
+    box-sizing: border-box;
+
     text-align: center;
     text-decoration: none;
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid white;
-    border-radius: 10px;
-    font-size: 1.2rem;
+
+    color: #e8f7ff;
+
+    background: linear-gradient(
+        135deg,
+        #020817,
+        #061535,
+        #0a2147
+    );
+
+    font-family: "Cinzel", serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+
+    border: 2px solid #4d7ea8;
+    border-radius: 4px;
+
+    position: relative;
+
+    box-shadow:
+        0 0 10px rgba(137, 207, 240, 0.25),
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+
+    transition: 0.3s ease;
 }
 
+
+.btn::before,
+.btn::after {
+    content: "";
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-color: #89CFF0;
+    border-style: solid;
+}
+
+
+.btn::before {
+    top: -2px;
+    left: -2px;
+    border-width: 2px 0 0 2px;
+}
+
+
+.btn::after {
+    bottom: -2px;
+    right: -2px;
+    border-width: 0 2px 2px 0;
+}
+
+
 .btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+        135deg,
+        #0a2147,
+        #123b70
+    );
+
+    border-color: #89CFF0;
+
+    box-shadow:
+        0 0 18px rgba(137,207,240,.7),
+        inset 0 0 20px rgba(137,207,240,.15);
+
+    transform: translateX(8px);
+}
+
+.utility-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+
+    background: rgba(2, 8, 23, 0.8);
+
+    color: #89CFF0;
+
+    border: 2px solid #4d7ea8;
+    border-radius: 50%;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 0 10px rgba(137,207,240,.3);
+
+    transition: .3s ease;
+}
+
+
+.icon-btn:hover {
+    color: white;
+
+    border-color: #89CFF0;
+
+    box-shadow:
+        0 0 20px #89CFF0;
+
+    transform: scale(1.1);
 }
