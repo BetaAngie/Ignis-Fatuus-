@@ -1,1 +1,43 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
 
+body {
+    background: url("images/NiviaBackground.gif") center center / cover no-repeat;
+    display: flex;
+    align-items: center;      /* Centers menu vertically */
+    min-height: 100vh;
+}
+
+.menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-left: 60px;        /* Distance from the left edge */
+}
+
+h1 {
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: block;
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
