@@ -1,83 +1,58 @@
-h1 {
-    font-family: "UnifrakturCook", cursive;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: #89CFF0;
 
-    width: 100%;
-    white-space: nowrap;
-    text-align: center;
+/* =========================================
+   IGNIS FATUUS
+   Responsive Main Menu
+   ========================================= */
+
+/* ---------- RESET ---------- */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-
-    margin: 0 0 20px 0;
-    padding-bottom: 15px;
-
-    border-bottom: 2px dotted #5DADE2;
-
-    text-shadow:
-        0 0 5px #89CFF0,
-        0 0 10px #89CFF0,
-        0 0 20px #5DADE2,
-        2px 2px 4px rgba(0,0,0,0.8);
-
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        text-shadow:
-            0 0 5px #89CFF0,
-            0 0 10px #87CEFA,
-            2px 2px 4px rgba(0,0,0,0.8);
-    }
-    to {
-        text-shadow:
-            0 0 10px #89CFF0,
-            0 0 20px #87CEFA,
-            0 0 35px #87CEFA,
-            2px 2px 4px rgba(0,0,0,0.8);
-    }
 }
 
 html {
-    height: 100%;
-    box-sizing: border-box;
-    border: 8px solid #0f242e;
-}
-
-html,
-body:after {
-    content: "✦";
-    position: fixed;
-
-    top: 50px;
-    left: 50px;
-
-    color: #89CFF0;
-    font-size: 30px;
-
-    text-shadow: 0 0 15px #89CFF0;
-}
-
-html, body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     margin: 0;
+
+    border: 8px solid #0f242e;
+
+    background: #020817;
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    margin: 0;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family: "Cinzel", serif;
+
+    color: #e8f7ff;
 }
+
+
+/* =========================================
+   BACKGROUND
+   ========================================= */
 
 body::before {
     content: "";
-    position: fixed;
 
+    position: fixed;
     inset: 0;
 
     background-image: url("images/NiviaBackground.gif");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,115 +60,299 @@ body::before {
     z-index: -2;
 }
 
+/* Dark overlay over background */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 4, 15, 0.25),
+            rgba(0, 4, 15, 0.45)
+        );
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   DECORATIVE STAR
+   ========================================= */
+
+.menu-screen::before {
+    content: "✦";
+
+    position: fixed;
+
+    top: 35px;
+    left: 40px;
+
+    color: #89CFF0;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 8px #89CFF0,
+        0 0 15px #89CFF0;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   MAIN SCREEN
+   ========================================= */
+
+.menu-screen {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding:
+        40px
+        40px
+        40px
+        max(40px, 8vw);
+}
+
+
+/* =========================================
+   MENU PANEL
+   ========================================= */
+
 .menu-actions {
     position: relative;
 
+    width: min(380px, 90vw);
+
+    padding: 45px 35px;
+
     display: flex;
     flex-direction: column;
-     align-items: center;
-    gap: 15px;
+    align-items: center;
 
-    margin-left: 12vw;
-    padding: 45px 35px;
-       width: 380px;
-max-width: 90vw;
-box-sizing: border-box;
+    gap: 15px;
 
     background: rgba(0, 0, 0, 0.45);
 
-    border: 2px solid rgba(137,207,240,.35);
+    border: 2px solid rgba(137, 207, 240, 0.35);
+
     border-radius: 18px;
 
     box-shadow:
-        0 0 20px rgba(137,207,240,.15),
-        0 0 40px rgba(0,0,0,.7);
+        0 0 20px rgba(137, 207, 240, 0.15),
+        0 0 40px rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.game-title {
+    width: 100%;
+
+    margin: 0 0 20px;
+
+    padding-bottom: 15px;
+
+    font-family: "UnifrakturCook", cursive;
+
+    font-size: clamp(2rem, 6vw, 3rem);
+
+    line-height: 1.1;
+
+    color: #89CFF0;
+
+    text-align: center;
+
+    white-space: normal;
+
+    border-bottom: 2px dotted #5DADE2;
+
+    text-shadow:
+        0 0 5px #89CFF0,
+        0 0 10px #89CFF0,
+        0 0 20px #5DADE2,
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   TITLE GLOW
+   ========================================= */
+
+@keyframes glow {
+
+    from {
+        text-shadow:
+            0 0 5px #89CFF0,
+            0 0 10px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #89CFF0,
+            0 0 20px #87CEFA,
+            0 0 35px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+/* =========================================
+   MAIN BUTTON CONTAINER
+   ========================================= */
+
+.main-buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   MAIN BUTTONS
+   ========================================= */
+
 .btn {
+    position: relative;
+
     display: block;
-    width: 220px;
+
+    width: min(220px, 100%);
+
     padding: 15px;
-    margin: 10px 0;
-    box-sizing: border-box;
 
     text-align: center;
     text-decoration: none;
 
     color: #e8f7ff;
 
-    background: linear-gradient(
-        135deg,
-        #020817,
-        #061535,
-        #0a2147
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #020817,
+            #061535,
+            #0a2147
+        );
 
     font-family: "Cinzel", serif;
+
     font-size: 0.95rem;
+
     letter-spacing: 2px;
 
     border: 2px solid #4d7ea8;
-    border-radius: 4px;
 
-    position: relative;
+    border-radius: 4px;
 
     box-shadow:
         0 0 10px rgba(137, 207, 240, 0.25),
         inset 0 0 15px rgba(0, 0, 0, 0.8);
 
-    transition: 0.3s ease;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
 
+
+/* Decorative corners on buttons */
 
 .btn::before,
 .btn::after {
     content: "";
+
     position: absolute;
 
     width: 12px;
     height: 12px;
 
     border-color: #89CFF0;
+
     border-style: solid;
+
+    pointer-events: none;
 }
 
 
 .btn::before {
     top: -2px;
     left: -2px;
+
     border-width: 2px 0 0 2px;
 }
 
 
 .btn::after {
-    bottom: -2px;
     right: -2px;
+    bottom: -2px;
+
     border-width: 0 2px 2px 0;
 }
 
 
-.btn:hover {
-    background: linear-gradient(
-        135deg,
-        #0a2147,
-        #123b70
-    );
+/* Desktop hover */
 
-    border-color: #89CFF0;
+@media (hover: hover) {
 
-    box-shadow:
-        0 0 18px rgba(137,207,240,.7),
-        inset 0 0 20px rgba(137,207,240,.15);
+    .btn:hover {
+        background:
+            linear-gradient(
+                135deg,
+                #0a2147,
+                #123b70
+            );
 
-    transform: translateX(8px);
+        border-color: #89CFF0;
+
+        box-shadow:
+            0 0 18px rgba(137, 207, 240, 0.7),
+            inset 0 0 20px rgba(137, 207, 240, 0.15);
+
+        transform: translateX(8px);
+    }
+
 }
+
+
+/* =========================================
+   UTILITY BUTTONS
+   ========================================= */
 
 .utility-buttons {
     display: flex;
+
     justify-content: center;
+
+    align-items: center;
+
     gap: 15px;
 
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 
@@ -201,35 +360,260 @@ box-sizing: border-box;
     width: 45px;
     height: 45px;
 
+    padding: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
     background: rgba(2, 8, 23, 0.8);
 
     color: #89CFF0;
 
     border: 2px solid #4d7ea8;
+
     border-radius: 50%;
 
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 
     cursor: pointer;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     box-shadow:
-        0 0 10px rgba(137,207,240,.3);
+        0 0 10px rgba(137, 207, 240, 0.3);
 
-    transition: .3s ease;
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
 
 
-.icon-btn:hover {
-    color: white;
+@media (hover: hover) {
 
-    border-color: #89CFF0;
+    .icon-btn:hover {
+        color: white;
 
-    box-shadow:
-        0 0 20px #89CFF0;
+        border-color: #89CFF0;
 
-    transform: scale(1.1);
+        box-shadow:
+            0 0 20px #89CFF0;
+
+        transform: scale(1.1);
+    }
+
+}
+
+
+/* =========================================
+   CREDITS
+   ========================================= */
+
+.credits {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #020817;
+
+    color: #e8f7ff;
+}
+
+.credits h2 {
+    font-family: "UnifrakturCook", cursive;
+
+    color: #89CFF0;
+
+    font-size: clamp(2rem, 7vw, 3rem);
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .menu-screen {
+        justify-content: center;
+
+        padding: 30px;
+    }
+
+    .menu-actions {
+        width: min(380px, 90vw);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    html {
+        border-width: 5px;
+    }
+
+    body {
+        align-items: center;
+
+        overflow-x: hidden;
+    }
+
+    .menu-screen {
+        min-height: 100dvh;
+
+        padding:
+            max(25px, env(safe-area-inset-top))
+            20px
+            max(25px, env(safe-area-inset-bottom))
+            20px;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-actions {
+        width: 100%;
+        max-width: 360px;
+
+        padding: 35px 22px;
+
+        gap: 12px;
+
+        border-radius: 15px;
+    }
+
+    .game-title {
+        font-size: clamp(2rem, 11vw, 2.7rem);
+
+        margin-bottom: 15px;
+
+        padding-bottom: 12px;
+    }
+
+    .main-buttons {
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+
+        max-width: 280px;
+
+        padding: 15px 12px;
+
+        font-size: 0.85rem;
+
+        letter-spacing: 1.5px;
+    }
+
+    .utility-buttons {
+        margin-top: 12px;
+
+        gap: 20px;
+    }
+
+    .icon-btn {
+        width: 48px;
+        height: 48px;
+
+        font-size: 1rem;
+    }
+
+    .menu-screen::before {
+        top: 20px;
+        left: 22px;
+
+        font-size: 24px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 360px) {
+
+    .menu-actions {
+        padding: 28px 16px;
+    }
+
+    .game-title {
+        font-size: 1.9rem;
+    }
+
+    .btn {
+        font-size: 0.78rem;
+
+        padding: 14px 10px;
+    }
+
+}
+
+
+/* =========================================
+   LANDSCAPE PHONES
+   ========================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .menu-screen {
+        padding: 20px;
+    }
+
+    .menu-actions {
+        padding: 25px 30px;
+    }
+
+    .game-title {
+        margin-bottom: 10px;
+
+        padding-bottom: 8px;
+
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px;
+    }
+
+    .utility-buttons {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCE ANIMATION FOR ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .game-title {
+        animation: none;
+    }
+
+    .btn,
+    .icon-btn {
+        transition: none;
+    }
+
 }
