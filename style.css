@@ -973,3 +973,36 @@ body.page-leaving {
 
 }
 
+/* Back to Main Menu button */
+.back-menu-btn {
+display: inline-block;
+margin: 20px;
+padding: 12px 20px;
+
+color: #e8f7ff;
+background: rgba(2, 8, 23, 0.85);
+border: 1px solid #8ba9c4;
+border-radius: 4px;
+
+font-family: 'Cinzel', serif;
+font-size: 14px;
+text-decoration: none;
+letter-spacing: 1px;
+
+transition: background 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.back-menu-btn:hover {
+background: rgba(35, 57, 79, 0.95);
+box-shadow: 0 0 12px rgba(139, 169, 196, 0.45);
+}
+
+/* Keep the button easy to tap on mobile */
+@media (max-width: 600px) {
+.back-menu-btn {
+margin: 12px;
+padding: 12px 16px;
+font-size: 12px;
+}
+}
