@@ -1,133 +1,484 @@
-
 /* ==================================================
-   IGNIS FATUUS — PREMISE PAGE
-   File: css/premise.css
+IGNIS FATUUS — PREMISE PAGE
+File: premise.css
 ================================================== */
+
+/* Page layout */
 body.premise-page {
-    display: block;
-    min-height: 100vh;
-    padding: 24px 16px 50px;
+display: block;
+min-height: 100vh;
+min-height: 100dvh;
+padding: 0 0 55px;
+overflow-x: clip;
 }
 
-/* Content container */
+/* Soft decorative glow behind the story panel */
+body.premise-page::after {
+background:
+radial-gradient(
+ellipse at 50% 35%,
+rgba(26, 75, 120, 0.20),
+transparent 65%
+),
+rgba(2, 8, 23, 0.80);
+pointer-events: none;
+}
+
+/* Main content */
 .premise-content {
-    position: relative;
-    z-index: 1;
+position: relative;
+z-index: 2;
 
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
+```
+width: min(900px, calc(100% - 36px));
+margin: 0 auto;
+padding: 34px 0 0;
+```
+
 }
 
-/* Return button */
+/* Return to menu */
 .premise-page .back-link {
-    display: inline-block;
-    margin: 0 0 28px;
-    padding: 10px 16px;
+display: inline-flex;
+align-items: center;
+gap: 10px;
 
-    color: #b9e7ff;
-    background: rgba(2, 8, 23, 0.7);
+```
+min-height: 44px;
+margin: 0 0 24px;
+padding: 11px 16px;
 
-    border: 1px solid #527fa5;
-    text-decoration: none;
+color: var(--light-blue, #b9e8ff);
+background: rgba(2, 8, 23, 0.86);
 
-    transition: background 0.2s ease;
+border: 1px solid rgba(137, 207, 240, 0.45);
+border-radius: 3px;
+
+font-family: var(--font-body, "Cinzel", serif);
+font-size: 0.76rem;
+letter-spacing: 1px;
+text-decoration: none;
+
+transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+```
+
 }
 
 .premise-page .back-link:hover,
 .premise-page .back-link:focus-visible {
-    background: rgba(75, 139, 190, 0.2);
+color: #fff;
+background: rgba(30, 67, 105, 0.7);
+border-color: var(--ice-blue, #89cff0);
+box-shadow: 0 0 14px rgba(137, 207, 240, 0.18);
 }
 
 /* Main story panel */
 .premise-panel {
-    padding: clamp(22px, 5vw, 48px);
+position: relative;
+isolation: isolate;
 
-    border: 1px solid #426b91;
-    border-radius: 8px;
+```
+padding: clamp(25px, 6vw, 65px);
 
-    background: rgba(4, 17, 42, 0.94);
+background:
+    linear-gradient(
+        145deg,
+        rgba(8, 24, 49, 0.96),
+        rgba(2, 8, 23, 0.97) 65%,
+        rgba(7, 24, 47, 0.96)
+    );
 
-    box-shadow: 0 0 28px rgba(51, 120, 180, 0.22);
+border: 1px solid rgba(137, 207, 240, 0.42);
+border-radius: 5px;
+
+box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(47, 110, 165, 0.12),
+    inset 0 0 35px rgba(30, 75, 120, 0.08);
+```
+
 }
 
-/* Premise heading */
+/* Fine decorative inner frame */
+.premise-panel::before {
+content: "";
+position: absolute;
+inset: 9px;
+z-index: -1;
+
+```
+border: 1px solid rgba(137, 207, 240, 0.12);
+pointer-events: none;
+```
+
+}
+
+/* Decorative star */
+.premise-panel::after {
+content: "✦";
+display: block;
+
+```
+margin: 28px auto 0;
+
+color: var(--ice-blue, #89cff0);
+font-size: 1.2rem;
+text-align: center;
+
+text-shadow:
+    0 0 8px rgba(137, 207, 240, 0.8),
+    0 0 20px rgba(93, 173, 226, 0.4);
+```
+
+}
+
+/* Small introductory label */
+.premise-eyebrow {
+margin: 0 0 16px;
+
+```
+color: #8cb8d9;
+font-size: 0.7rem;
+letter-spacing: clamp(2px, 0.8vw, 5px);
+line-height: 1.8;
+text-align: center;
+text-transform: uppercase;
+```
+
+}
+
+/* Main heading */
 .premise-page h1 {
-    margin: 0 0 24px;
+margin: 0;
 
-    color: #9bdcff;
-    font-size: clamp(2rem, 7vw, 3.5rem);
-    line-height: 1.2;
-    text-align: center;
+```
+color: var(--ice-blue, #89cff0);
+font-family: var(--font-title, "UnifrakturCook", cursive);
+font-size: clamp(2.8rem, 8vw, 5rem);
+font-weight: 700;
+line-height: 1.2;
+text-align: center;
+overflow-wrap: anywhere;
 
-    overflow-wrap: anywhere;
+text-shadow:
+    0 0 8px rgba(137, 207, 240, 0.55),
+    0 0 24px rgba(93, 173, 226, 0.22);
+```
+
+}
+
+/* Game title beneath heading */
+.premise-page .premise-subtitle {
+margin: 12px 0 30px;
+
+```
+color: #b5cde0;
+font-family: var(--font-body, "Cinzel", serif);
+font-size: 0.8rem;
+letter-spacing: 4px;
+line-height: 1.8;
+text-align: center;
+text-transform: uppercase;
+```
+
+}
+
+/* Divider beneath the title */
+.premise-divider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+
+```
+margin: 0 auto 35px;
+color: var(--ice-blue, #89cff0);
+```
+
+}
+
+.premise-divider::before,
+.premise-divider::after {
+content: "";
+width: min(100px, 25%);
+height: 1px;
+
+```
+background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(137, 207, 240, 0.65)
+);
+```
+
+}
+
+.premise-divider::after {
+transform: rotate(180deg);
+}
+
+/* Introductory story paragraph */
+.premise-page .premise-intro {
+color: #e4f1fc;
+font-size: clamp(1rem, 2.3vw, 1.12rem);
+line-height: 2;
+text-align: center;
+}
+
+/* Paragraphs */
+.premise-page p {
+overflow-wrap: anywhere;
+}
+
+.premise-page .premise-panel > p:not(.premise-subtitle):not(.premise-eyebrow):not(.premise-intro) {
+color: #c6d7e8;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1rem;
+line-height: 2;
+}
+
+/* Lore sections */
+.premise-section {
+margin-top: 36px;
+padding-top: 25px;
+
+```
+border-top: 1px solid rgba(137, 207, 240, 0.2);
+```
+
 }
 
 .premise-page h2 {
-    margin-top: 30px;
+margin: 0 0 15px;
 
-    color: #9bdcff;
-    font-size: clamp(1.1rem, 4vw, 1.5rem);
+```
+color: var(--ice-blue, #89cff0);
+font-family: var(--font-body, "Cinzel", serif);
+font-size: clamp(1.05rem, 3vw, 1.35rem);
+font-weight: 400;
+letter-spacing: 1px;
+line-height: 1.6;
+```
+
 }
 
-/* Story text */
-.premise-page p {
-    color: #d5e5f2;
-    font-family: Georgia, serif;
-    font-size: 1rem;
-    line-height: 1.9;
-
-    overflow-wrap: anywhere;
+.premise-page h2::before {
+content: "✧";
+margin-right: 10px;
+color: #b5dff8;
 }
 
-.premise-page .premise-subtitle {
-    margin: -10px 0 30px;
+/* Closing story line */
+.premise-quote {
+margin: 32px 0 0;
+padding: 20px 15px;
 
-    color: #a7bdd2;
-    text-align: center;
-    font-style: italic;
+```
+color: #a9d7f2;
+background: rgba(67, 119, 166, 0.08);
+
+border-left: 2px solid rgba(137, 207, 240, 0.6);
+
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.95rem;
+font-style: italic;
+line-height: 1.9;
+text-align: center;
+```
+
 }
-/* Discord link */
+
+/* Discord call to action */
 .premise-page .discord-link {
-    display: block;
+position: relative;
 
-    width: fit-content;
-    max-width: 100%;
+```
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
 
-    margin: 30px auto 0;
-    padding: 13px 22px;
+width: min(100%, 360px);
+min-height: 54px;
+margin: 35px auto 0;
+padding: 15px 18px;
 
-    color: #e8f7ff;
-    background: rgba(2, 8, 23, 0.45);
+color: #e8f7ff;
+background: linear-gradient(
+    135deg,
+    rgba(7, 25, 49, 0.95),
+    rgba(17, 53, 86, 0.9)
+);
 
-    border: 1px solid #89cff0;
+border: 1px solid #75b9e1;
+border-radius: 3px;
 
-    text-align: center;
-    text-decoration: none;
-    overflow-wrap: anywhere;
+font-family: var(--font-body, "Cinzel", serif);
+font-size: 0.8rem;
+letter-spacing: 1px;
+line-height: 1.7;
+text-align: center;
+text-decoration: none;
+overflow-wrap: anywhere;
 
-    transition:
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+box-shadow:
+    0 0 14px rgba(93, 173, 226, 0.12),
+    inset 0 0 12px rgba(137, 207, 240, 0.04);
+
+transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+```
+
+}
+
+.premise-page .discord-link::before {
+content: "✦";
+color: var(--ice-blue, #89cff0);
 }
 
 .premise-page .discord-link:hover,
 .premise-page .discord-link:focus-visible {
-    background: rgba(137, 207, 240, 0.14);
-    box-shadow: 0 0 12px rgba(137, 207, 240, 0.15);
+color: #fff;
+background: rgba(37, 86, 130, 0.65);
+border-color: #c1eaff;
+
+```
+box-shadow:
+    0 0 20px rgba(137, 207, 240, 0.3),
+    inset 0 0 16px rgba(137, 207, 240, 0.08);
+
+transform: translateY(-2px);
+```
+
+}
+
+/* Small footer */
+.premise-footer {
+margin: 25px 0 0;
+
+```
+color: #7f9ab4;
+font-family: var(--font-body, "Cinzel", serif);
+font-size: 0.65rem;
+letter-spacing: 2px;
+line-height: 1.8;
+text-align: center;
+```
+
+}
+
+/* Keyboard focus */
+.premise-page a:focus-visible {
+outline: 2px solid #b9e8ff;
+outline-offset: 4px;
+}
+
+/* Tablet */
+@media (max-width: 700px) {
+.premise-content {
+width: calc(100% - 28px);
+padding-top: 25px;
+}
+
+```
+.premise-panel {
+    padding: 35px 27px;
+}
+
+.premise-section {
+    margin-top: 28px;
+    padding-top: 22px;
+}
+```
+
 }
 
 /* Mobile */
 @media (max-width: 480px) {
-    body.premise-page {
-        padding: 18px 12px 32px;
-    }
-
-    .premise-panel {
-        padding: 24px 18px;
-    }
-
-    .premise-page p {
-        font-size: 0.98rem;
-    }
+body.premise-page {
+padding-bottom: 30px;
 }
+
+```
+.premise-content {
+    width: calc(100% - 24px);
+    padding-top: 18px;
+}
+
+.premise-page .back-link {
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    font-size: 0.68rem;
+}
+
+.premise-panel {
+    padding: 31px 21px;
+}
+
+.premise-panel::before {
+    inset: 6px;
+}
+
+.premise-page h1 {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+}
+
+.premise-page .premise-subtitle {
+    margin-bottom: 24px;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+.premise-divider {
+    margin-bottom: 25px;
+}
+
+.premise-page .premise-intro {
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+.premise-page .premise-panel > p:not(.premise-subtitle):not(.premise-eyebrow):not(.premise-intro) {
+    font-size: 0.96rem;
+    line-height: 1.9;
+}
+
+.premise-page h2 {
+    font-size: 1.05rem;
+}
+
+.premise-quote {
+    padding: 17px 12px;
+    font-size: 0.9rem;
+}
+
+.premise-page .discord-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+}
+```
+
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+.premise-page .back-link,
+.premise-page .discord-link {
+transition: none;
+}
+
+```
+.premise-page .discord-link:hover {
+    transform: none;
+}
+```
+
+}
+
