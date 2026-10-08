@@ -23,22 +23,23 @@ html {
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    margin: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    overflow-x: hidden;
-
-    font-family: "Cinzel", serif;
-
-    color: #e8f7ff;
+width: 100%;
+min-height: 100vh;
+min-height: 100dvh;
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+overflow-x: hidden;
+font-family: "Cinzel", serif;
+color: #e8f7ff;
+padding: 30px;
 }
+
+.menu-actions {
+margin-left: max(0px, 8vw);
+}
+
 
 
 /* =========================================
@@ -403,39 +404,6 @@ body::after {
         transform: scale(1.1);
     }
 
-}
-
-
-/* =========================================
-   CREDITS
-   ========================================= */
-
-.credits {
-    min-height: 100vh;
-
-    padding: 80px 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    background: #020817;
-
-    color: #e8f7ff;
-}
-
-.credits h2 {
-    font-family: "UnifrakturCook", cursive;
-
-    color: #89CFF0;
-
-    font-size: clamp(2rem, 7vw, 3rem);
 }
 
 
