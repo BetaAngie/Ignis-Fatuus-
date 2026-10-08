@@ -965,3 +965,135 @@ body.page-leaving {
     }
 
 }
+
+
+/* ===== IGNIS FATUUS: INTERACTIVE PAGE FIX ===== */
+
+html {
+    min-height: 100%;
+    background: #020817;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #e8f7ff;
+    background-color: #020817;
+    font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Keep background effects behind the content */
+body::before {
+    pointer-events: none;
+}
+
+body::after {
+    pointer-events: none;
+}
+
+/* Keep page content visible above decorative layers */
+main,
+header,
+nav,
+footer,
+section,
+article {
+    position: relative;
+    z-index: 1;
+}
+
+/* Interactive story and evidence panels */
+.story-panel,
+.evidence-panel,
+.premise-panel,
+.lore-panel,
+.credits-container {
+    width: min(850px, calc(100% - 32px));
+    margin: 40px auto;
+    padding: clamp(20px, 5vw, 40px);
+    box-sizing: border-box;
+    color: #e8f7ff;
+    background: rgba(4, 17, 42, 0.94);
+    border: 1px solid #426b91;
+    border-radius: 8px;
+    box-shadow: 0 0 24px rgba(72, 145, 200, 0.18);
+}
+
+h1,
+h2,
+h3 {
+    color: #9bdcff;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* Dialogue and evidence buttons */
+.story-choices,
+.evidence-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button,
+.story-choices button,
+.evidence-card,
+a.btn {
+    min-height: 44px;
+    padding: 12px 18px;
+    color: #e8f7ff;
+    font: inherit;
+    background: rgba(15, 36, 62, 0.95);
+    border: 1px solid #6da8d4;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover,
+.story-choices button:hover,
+.evidence-card:hover,
+a.btn:hover {
+    background: #163655;
+    border-color: #a8dfff;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #a8dfff;
+    outline-offset: 3px;
+}
+
+/* Form controls */
+input {
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    margin: 12px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #e8f7ff;
+    background: #061225;
+    border: 1px solid #426b91;
+    border-radius: 4px;
+    font: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .story-panel,
+    .evidence-panel,
+    .premise-panel,
+    .lore-panel,
+    .credits-container {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+        padding: 20px 16px;
+    }
+}
