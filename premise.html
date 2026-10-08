@@ -1,74 +1,192 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Premise | Ignis Fatuus</title>
+    <title>The Premise | Ignis Fatuus</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <link rel="stylesheet" href="style.css">
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 30px 20px;
-      background: #020817;
-      color: #e8f7ff;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    main {
-      width: 100%;
-      max-width: 700px;
-      margin: 50px auto;
-      padding: 35px 25px;
-      background: #061535;
-      border: 2px solid #4d7ea8;
-      border-radius: 8px;
-      box-shadow: 0 0 25px #123b70;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
-    h1 {
-      color: #89CFF0;
-      font-size: clamp(2rem, 8vw, 3.5rem);
-      overflow-wrap: anywhere;
-    }
+    <style>
+        /* Keep this page visible even if the main menu CSS conflicts */
+        html {
+            min-height: 100%;
+            background: #020817;
+        }
 
-    p {
-      line-height: 1.8;
-      color: #c3d7e8;
-    }
+        body.premise-page {
+            display: block;
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px 16px 50px;
+            overflow-x: hidden;
+            color: #e8f7ff;
+            font-family: 'Cinzel', Georgia, serif;
+            background: #020817;
+        }
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      color: #e8f7ff;
-      border: 1px solid #89CFF0;
-      text-decoration: none;
-    }
-  </style>
+        .premise-page::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(2, 8, 23, 0.76), rgba(2, 8, 23, 0.9)),
+                url("images/NiviaBackground.gif") center / cover no-repeat;
+        }
+
+        .premise-page .premise-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .premise-page .back-link {
+            display: inline-block;
+            margin: 0 0 28px;
+            padding: 10px 16px;
+            color: #b9e7ff;
+            border: 1px solid #527fa5;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .premise-page .back-link:hover,
+        .premise-page .back-link:focus-visible {
+            background: rgba(75, 139, 190, 0.2);
+        }
+
+        .premise-page .premise-panel {
+            padding: clamp(22px, 5vw, 48px);
+            border: 1px solid #426b91;
+            border-radius: 8px;
+            background: rgba(4, 17, 42, 0.94);
+            box-shadow: 0 0 28px rgba(51, 120, 180, 0.22);
+        }
+
+        .premise-page h1 {
+            margin: 0 0 24px;
+            color: #9bdcff;
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            line-height: 1.2;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .premise-page h2 {
+            margin-top: 30px;
+            color: #9bdcff;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+        }
+
+        .premise-page p {
+            color: #d5e5f2;
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+        }
+
+        .premise-page .premise-subtitle {
+            margin: -10px 0 30px;
+            color: #a7bdd2;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .premise-page .discord-link {
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            margin: 30px auto 0;
+            padding: 13px 22px;
+            color: #e8f7ff;
+            border: 1px solid #89cff0;
+            text-align: center;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .premise-page .discord-link:hover,
+        .premise-page .discord-link:focus-visible {
+            background: rgba(137, 207, 240, 0.14);
+        }
+
+        @media (max-width: 480px) {
+            body.premise-page {
+                padding: 18px 12px 32px;
+            }
+
+            .premise-page .premise-panel {
+                padding: 24px 18px;
+            }
+
+            .premise-page p {
+                font-size: 0.98rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .premise-page *,
+            .premise-page *::before,
+            .premise-page *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <main>
-    <h1>The Premise</h1>
+<body class="premise-page">
+    <main class="premise-content">
+        <a class="back-link" href="index.html">
+            ← Return to Main Menu
+        </a>
 
-    <p>
-      Welcome to Ignis Fatuus.
-      Your journey into the story begins here.
-    </p>
+        <article class="premise-panel">
+            <h1>The Premise</h1>
+            <p class="premise-subtitle">Ignis Fatuus</p>
 
-    <p>
-      If you can see this page, the HTML is working.
-    </p>
+            <p>
+                Welcome to Ignis Fatuus. Step into a story where the truth
+                is uncertain, trust can be dangerous, and every choice may
+                lead somewhere unexpected.
+            </p>
 
-    <a href="index.html">Return to Main Menu</a>
-  </main>
+            <h2>Your Journey Begins</h2>
+
+            <p>
+                Explore the story, meet the characters, and uncover the
+                mysteries surrounding this world. Pay attention to what
+                people say—and what they choose to leave unsaid.
+            </p>
+
+            <p>
+                Ready to begin? Join the community to participate in the
+                roleplay and continue your journey.
+            </p>
+
+            <a
+                class="discord-link"
+                href="https://discord.gg/MxPJCbaG8"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Enter the Story on Discord
+            </a>
+        </article>
+    </main>
 </body>
 </html>
+```
