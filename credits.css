@@ -1,1 +1,138 @@
 
+/* ==================================================
+   IGNIS FATUUS — CREDITS PAGE
+   File: css/credits.css
+================================================== */
+/* Main container */
+.credits-container {
+    width: min(850px, 100%);
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+}
+
+/* Page title section */
+.credits-container .page-heading {
+    padding: 45px 0 35px;
+    text-align: center;
+}
+
+.credits-container .page-title {
+    margin: 0;
+}
+
+.credits-container .page-subtitle {
+    margin-top: 18px;
+    color: #c4d8e9;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Introduction */
+.credits-intro {
+    max-width: 620px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.credits-intro p {
+    color: #c3cbdc;
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+/* Credit category panels */
+.credit-section {
+    position: relative;
+
+    margin: 25px 0;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: rgba(0, 8, 24, 0.72);
+    border: 1px solid rgba(137, 207, 240, 0.23);
+    border-radius: 5px;
+}
+
+.credit-section h2 {
+    margin-bottom: 18px;
+
+    color: #89CFF0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+    font-weight: 400;
+}
+
+/* Decorative symbols */
+.credit-symbol,
+.closing-star {
+    display: block;
+    margin-bottom: 12px;
+
+    color: #89CFF0;
+    font-size: 1.4rem;
+
+    text-shadow: 0 0 12px rgba(137, 207, 240, 0.8);
+}
+
+/* Individual contributors */
+.credit-entry {
+    padding: 15px 0;
+}
+
+.credit-entry + .credit-entry {
+    border-top: 1px solid rgba(137, 207, 240, 0.15);
+}
+
+.credit-entry h3 {
+    color: #e8f7ff;
+    font-family: "Cinzel", serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.credit-entry p {
+    margin-top: 5px;
+
+    color: #c3cbdc;
+    font-size: 0.82rem;
+    line-height: 1.9;
+}
+
+/* Closing message */
+.closing-message {
+    max-width: 570px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+.closing-message p {
+    color: #c3cbdc;
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+.closing-star {
+    margin: 15px 0;
+}
+
+/* Footer */
+.credits-container + .site-footer {
+    margin-top: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .credits-container {
+        padding: 20px 17px 45px;
+    }
+
+    .credits-container .page-heading {
+        padding: 35px 0 25px;
+    }
+
+    .credit-section {
+        padding: 25px 15px;
+    }
+}

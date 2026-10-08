@@ -1,1 +1,447 @@
 
+/* ==================================================
+   IGNIS FATUUS — MAIN MENU
+   File: css/menu.css
+================================================== */
+/* Main menu layout */
+body:not(.subpage):not(.premise-page) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+.menu-screen {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 40px 40px 40px max(40px, 8vw);
+}
+
+/* Menu panel */
+.menu-actions {
+    position: relative;
+
+    width: min(380px, 90vw);
+    margin-left: 0;
+    padding: 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(0, 0, 0, 0.45);
+    border: 2px solid rgba(137, 207, 240, 0.35);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(137, 207, 240, 0.15),
+        0 0 40px rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+/* Decorative star */
+.menu-screen::before {
+    content: "✦";
+    position: fixed;
+    top: 35px;
+    left: 40px;
+    z-index: 1;
+
+    color: #89CFF0;
+    font-size: 30px;
+
+    text-shadow:
+        0 0 8px #89CFF0,
+        0 0 15px #89CFF0;
+
+    pointer-events: none;
+}
+
+/* Game title */
+.game-title {
+    width: 100%;
+    margin: 0 0 20px;
+    padding-bottom: 15px;
+
+    color: #89CFF0;
+    font-family: "UnifrakturCook", cursive;
+
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.1;
+    text-align: center;
+
+    border-bottom: 2px dotted #5DADE2;
+
+    text-shadow:
+        0 0 5px #89CFF0,
+        0 0 10px #89CFF0,
+        0 0 20px #5DADE2,
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Title animation */
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 5px #89CFF0,
+            0 0 10px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #89CFF0,
+            0 0 20px #87CEFA,
+            0 0 35px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Menu buttons */
+.main-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    position: relative;
+    display: block;
+
+    width: min(220px, 100%);
+    padding: 15px;
+
+    color: #e8f7ff;
+    text-align: center;
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        #020817,
+        #061535,
+        #0a2147
+    );
+
+    font-family: "Cinzel", serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+
+    border: 2px solid #4d7ea8;
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 10px rgba(137, 207, 240, 0.25),
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Button corner decorations */
+.btn::before,
+.btn::after {
+    content: "";
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-color: #89CFF0;
+    border-style: solid;
+    pointer-events: none;
+}
+
+.btn::before {
+    top: -2px;
+    left: -2px;
+    border-width: 2px 0 0 2px;
+}
+
+.btn::after {
+    right: -2px;
+    bottom: -2px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Hover */
+
+@media (hover: hover) {
+    .btn:hover {
+        background: linear-gradient(
+            135deg,
+            #0a2147,
+            #123b70
+        );
+
+        border-color: #89CFF0;
+
+        box-shadow:
+            0 0 18px rgba(137, 207, 240, 0.7),
+            inset 0 0 20px rgba(137, 207, 240, 0.15);
+
+        transform: translateX(8px);
+    }
+}
+
+/* Settings and tutorial icons */
+.utility-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #89CFF0;
+    background: rgba(2, 8, 23, 0.8);
+
+    border: 2px solid #4d7ea8;
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    box-shadow: 0 0 10px rgba(137, 207, 240, 0.3);
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .icon-btn:hover {
+        color: white;
+        border-color: #89CFF0;
+        box-shadow: 0 0 20px #89CFF0;
+        transform: scale(1.1);
+    }
+}
+
+/* Dialog */
+.game-dialog {
+    position: fixed;
+
+    width: min(420px, calc(100% - 32px));
+    max-height: 85vh;
+    max-height: 85dvh;
+
+    overflow-y: auto;
+    margin: auto;
+    padding: 35px 25px;
+
+    color: #e8f7ff;
+    background: #061124;
+
+    border: 1px solid #89CFF0;
+    border-radius: 8px;
+
+    box-shadow: 0 0 35px rgba(93, 173, 226, 0.3);
+
+    font-family: "Cinzel", serif;
+}
+
+.game-dialog::backdrop {
+    background: rgba(0, 3, 12, 0.82);
+    backdrop-filter: blur(5px);
+}
+
+.game-dialog h2 {
+    margin-bottom: 15px;
+    color: #89CFF0;
+    font-size: 1.4rem;
+}
+
+.game-dialog p {
+    margin: 12px 0;
+    color: #c3d7e8;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    color: #89CFF0;
+    background: transparent;
+    border: 0;
+
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.dialog-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.dialog-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: #89CFF0;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .menu-screen {
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .menu-actions {
+        width: min(380px, 90vw);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    body:not(.subpage):not(.premise-page) {
+        align-items: center;
+        padding: 0;
+    }
+
+    .menu-screen {
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        padding:
+            max(25px, env(safe-area-inset-top))
+            20px
+            max(25px, env(safe-area-inset-bottom));
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-actions {
+        width: 100%;
+        max-width: 360px;
+        padding: 35px 22px;
+        gap: 12px;
+        border-radius: 15px;
+    }
+
+    .game-title {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        font-size: clamp(2rem, 11vw, 2.7rem);
+    }
+
+    .main-buttons {
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px 12px;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+
+    .utility-buttons {
+        margin-top: 12px;
+        gap: 20px;
+    }
+
+    .icon-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    .menu-screen::before {
+        top: 20px;
+        left: 22px;
+        font-size: 24px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .menu-actions {
+        padding: 28px 16px;
+    }
+
+    .game-title {
+        font-size: 1.9rem;
+    }
+
+    .btn {
+        padding: 14px 10px;
+        font-size: 0.78rem;
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    .menu-screen {
+        padding: 20px;
+    }
+
+    .menu-actions {
+        padding: 25px 30px;
+    }
+
+    .game-title {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px;
+    }
+
+    .utility-buttons {
+        margin-top: 5px;
+    }
+}
+
+/* Optional reduced-effects setting */
+body.reduce-effects .game-title {
+    animation: none;
+}
+
+body.reduce-effects .btn,
+body.reduce-effects .icon-btn {
+    transition: none;
+}
+
+body.reduce-effects .menu-actions {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}

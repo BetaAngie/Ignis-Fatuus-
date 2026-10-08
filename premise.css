@@ -1,1 +1,133 @@
 
+/* ==================================================
+   IGNIS FATUUS — PREMISE PAGE
+   File: css/premise.css
+================================================== */
+body.premise-page {
+    display: block;
+    min-height: 100vh;
+    padding: 24px 16px 50px;
+}
+
+/* Content container */
+.premise-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Return button */
+.premise-page .back-link {
+    display: inline-block;
+    margin: 0 0 28px;
+    padding: 10px 16px;
+
+    color: #b9e7ff;
+    background: rgba(2, 8, 23, 0.7);
+
+    border: 1px solid #527fa5;
+    text-decoration: none;
+
+    transition: background 0.2s ease;
+}
+
+.premise-page .back-link:hover,
+.premise-page .back-link:focus-visible {
+    background: rgba(75, 139, 190, 0.2);
+}
+
+/* Main story panel */
+.premise-panel {
+    padding: clamp(22px, 5vw, 48px);
+
+    border: 1px solid #426b91;
+    border-radius: 8px;
+
+    background: rgba(4, 17, 42, 0.94);
+
+    box-shadow: 0 0 28px rgba(51, 120, 180, 0.22);
+}
+
+/* Premise heading */
+.premise-page h1 {
+    margin: 0 0 24px;
+
+    color: #9bdcff;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.2;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+.premise-page h2 {
+    margin-top: 30px;
+
+    color: #9bdcff;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+}
+
+/* Story text */
+.premise-page p {
+    color: #d5e5f2;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+.premise-page .premise-subtitle {
+    margin: -10px 0 30px;
+
+    color: #a7bdd2;
+    text-align: center;
+    font-style: italic;
+}
+/* Discord link */
+.premise-page .discord-link {
+    display: block;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 30px auto 0;
+    padding: 13px 22px;
+
+    color: #e8f7ff;
+    background: rgba(2, 8, 23, 0.45);
+
+    border: 1px solid #89cff0;
+
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.premise-page .discord-link:hover,
+.premise-page .discord-link:focus-visible {
+    background: rgba(137, 207, 240, 0.14);
+    box-shadow: 0 0 12px rgba(137, 207, 240, 0.15);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body.premise-page {
+        padding: 18px 12px 32px;
+    }
+
+    .premise-panel {
+        padding: 24px 18px;
+    }
+
+    .premise-page p {
+        font-size: 0.98rem;
+    }
+}
