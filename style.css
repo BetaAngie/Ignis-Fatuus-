@@ -1,21 +1,38 @@
-/* ==================================================
-   IGNIS FATUUS — GLOBAL STYLES
-   File: css/style.css
 
-   01. Variables
-   02. Reset
-   03. Shared Background
-   04. Shared Typography
-   05. Shared Navigation
-   06. Shared Buttons
-   07. Shared Footer
-   08. Accessibility
-================================================== */
+/* =========================================================
+   IGNIS FATUUS
+   MASTER STYLESHEET — style.css
 
-/* 01. VARIABLES */
+   CONTENTS
+   01. Global Variables
+   02. Reset and Base Styles
+   03. Background and Overlay
+   04. Main Menu Layout
+   05. Main Menu Title and Animation
+   06. Main Menu Buttons
+   07. Utility Buttons
+   08. Shared Subpage Navigation
+   09. Premise / Lore Page
+   10. Credits Page
+   11. Interactive Dialogs
+   12. Back to Main Menu Button
+   13. Page Transitions and Effects
+   14. Tablet Layout
+   15. Mobile Layout
+   16. Small Phones
+   17. Landscape Phones
+   18. Reduced Motion
+========================================================= */
+
+
+/* =========================================================
+   01. GLOBAL VARIABLES
+========================================================= */
+
 :root {
     --bg-dark: #020817;
     --bg-panel: #061124;
+    --bg-blue: #061535;
 
     --ice-blue: #89CFF0;
     --light-blue: #b9e8ff;
@@ -29,9 +46,14 @@
     --font-title: "UnifrakturCook", cursive;
 
     --border-glow: rgba(137, 207, 240, 0.3);
+    --panel-bg: rgba(0, 8, 24, 0.82);
 }
 
-/* 02. RESET */
+
+/* =========================================================
+   02. RESET AND BASE STYLES
+========================================================= */
+
 *,
 *::before,
 *::after {
@@ -39,16 +61,16 @@
 }
 
 html {
+    width: 100%;
     min-height: 100%;
     margin: 0;
-    background: var(--bg-dark);
+
     border: 8px solid #0f242e;
+    background: var(--bg-dark);
 }
 
 body {
     position: relative;
-    isolation: isolate;
-
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
@@ -58,10 +80,16 @@ body {
 
     color: var(--text-primary);
     font-family: var(--font-body);
+
     background: transparent;
+    isolation: isolate;
 
     opacity: 1;
     transition: opacity 180ms ease;
+}
+
+a {
+    color: var(--light-blue);
 }
 
 button,
@@ -75,80 +103,369 @@ button {
     color: inherit;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
 
-/* 03. SHARED BACKGROUND */
-/* Background image */
+/* =========================================================
+   03. BACKGROUND AND OVERLAY
+   Applies to all pages
+========================================================= */
+
+/* Animated background GIF */
+
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: 0;
 
-    background:
-        url("../images/NiviaBackground.gif")
-        center / cover no-repeat;
+    background-image: url("images/NiviaBackground.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     pointer-events: none;
 }
 
-/* Background darkness */
+/* Darken the background for readable text */
+
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 1;
 
     background: linear-gradient(
-        rgba(0, 4, 15, 0.35),
-        rgba(0, 4, 15, 0.65)
+        rgba(0, 4, 15, 0.25),
+        rgba(0, 4, 15, 0.45)
     );
 
     pointer-events: none;
 }
 
-/* Subpages use a darker overlay */
-body.subpage::after,
-body.premise-page::after {
+/* Keep page content above background layers */
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   04. MAIN MENU LAYOUT
+========================================================= */
+
+/* Main-menu body only */
+
+body:not(.subpage) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+/* Main menu screen */
+
+.menu-screen {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 40px 40px 40px max(40px, 8vw);
+}
+
+/* Menu panel */
+
+.menu-actions {
+    position: relative;
+
+    width: min(380px, 90vw);
+    margin-left: 0;
+
+    padding: 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border: 2px solid rgba(137, 207, 240, 0.35);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(137, 207, 240, 0.15),
+        0 0 40px rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+/* Decorative star */
+
+.menu-screen::before {
+    content: "✦";
+
+    position: fixed;
+    top: 35px;
+    left: 40px;
+
+    color: var(--ice-blue);
+    font-size: 30px;
+
+    text-shadow:
+        0 0 8px var(--ice-blue),
+        0 0 15px var(--ice-blue);
+
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+/* =========================================================
+   05. MAIN MENU TITLE AND ANIMATION
+========================================================= */
+
+.game-title {
+    width: 100%;
+    margin: 0 0 20px;
+    padding-bottom: 15px;
+
+    color: var(--ice-blue);
+    font-family: var(--font-title);
+
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
+
+    border-bottom: 2px dotted var(--accent-blue);
+
+    text-shadow:
+        0 0 5px var(--ice-blue),
+        0 0 10px var(--ice-blue),
+        0 0 20px var(--accent-blue),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Title glow animation */
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 5px var(--ice-blue),
+            0 0 10px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px var(--ice-blue),
+            0 0 20px #87CEFA,
+            0 0 35px #87CEFA,
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+/* =========================================================
+   06. MAIN MENU BUTTONS
+========================================================= */
+
+.main-buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Shared menu button */
+
+.btn {
+    position: relative;
+    display: block;
+
+    width: min(220px, 100%);
+    padding: 15px;
+
+    color: var(--text-primary);
+    text-align: center;
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        var(--bg-dark),
+        var(--bg-blue),
+        #0a2147
+    );
+
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+
+    border: 2px solid var(--border-blue);
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 10px rgba(137, 207, 240, 0.25),
+        inset 0 0 15px rgba(0, 0, 0, 0.8);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Decorative button corners */
+
+.btn::before,
+.btn::after {
+    content: "";
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-color: var(--ice-blue);
+    border-style: solid;
+
+    pointer-events: none;
+}
+
+.btn::before {
+    top: -2px;
+    left: -2px;
+    border-width: 2px 0 0 2px;
+}
+
+.btn::after {
+    right: -2px;
+    bottom: -2px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Hover only on devices that support hover */
+
+@media (hover: hover) {
+    .btn:hover {
+        background: linear-gradient(
+            135deg,
+            #0a2147,
+            #123b70
+        );
+
+        border-color: var(--ice-blue);
+
+        box-shadow:
+            0 0 18px rgba(137, 207, 240, 0.7),
+            inset 0 0 20px rgba(137, 207, 240, 0.15);
+
+        transform: translateX(8px);
+    }
+}
+
+/* Keyboard accessibility */
+
+.btn:focus-visible,
+.icon-btn:focus-visible,
+.page-navigation a:focus-visible,
+.back-menu-btn:focus-visible {
+    outline: 2px solid var(--ice-blue);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   07. UTILITY BUTTONS
+   Settings / Tutorial / Other menu icons
+========================================================= */
+
+.utility-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--ice-blue);
+    background: rgba(2, 8, 23, 0.8);
+
+    border: 2px solid var(--border-blue);
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    box-shadow: 0 0 10px rgba(137, 207, 240, 0.3);
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .icon-btn:hover {
+        color: white;
+        border-color: var(--ice-blue);
+        box-shadow: 0 0 20px var(--ice-blue);
+        transform: scale(1.1);
+    }
+}
+
+
+/* =========================================================
+   08. SHARED SUBPAGE NAVIGATION
+   Premise / Credits / Other information pages
+========================================================= */
+
+/* Subpage body */
+
+body.subpage {
+    display: block;
+    min-height: 100vh;
+    padding: 0;
+    background: transparent;
+}
+
+/* Darker background on information pages */
+
+body.subpage::before {
+    background-image: url("images/NiviaBackground.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.subpage::after {
     background: rgba(2, 8, 23, 0.78);
 }
 
-/* 04. SHARED TYPOGRAPHY */
-a {
-    color: var(--light-blue);
-}
+/* Page header */
 
-h1,
-h2,
-h3 {
-    overflow-wrap: anywhere;
-}
-
-.page-title {
-    color: var(--ice-blue);
-    font-family: var(--font-title);
-    font-size: clamp(2.8rem, 8vw, 4.5rem);
-    line-height: 1.2;
-
-    text-shadow:
-        0 0 8px rgba(137, 207, 240, 0.7),
-        0 0 25px rgba(93, 173, 226, 0.4);
-}
-
-.eyebrow {
-    color: var(--ice-blue);
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-/* 05. SHARED NAVIGATION */
 .page-header {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 
     display: flex;
     align-items: center;
@@ -161,11 +478,14 @@ h3 {
     border-bottom: 1px solid var(--border-glow);
 }
 
+/* Header links */
+
 .back-link,
 .page-navigation a {
     color: var(--light-blue);
     text-decoration: none;
     font-size: 0.85rem;
+
     transition: color 0.2s ease;
 }
 
@@ -175,11 +495,62 @@ h3 {
     text-shadow: 0 0 10px var(--ice-blue);
 }
 
+/* Header decorative symbol */
+
 .header-symbol {
     color: var(--ice-blue);
     font-size: 1.5rem;
     text-shadow: 0 0 12px var(--ice-blue);
 }
+
+/* Shared page containers */
+
+.lore-container,
+.credits-container {
+    width: min(850px, 100%);
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+}
+
+/* Shared page heading */
+
+.page-heading {
+    padding: 45px 0 35px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--ice-blue);
+
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.page-title {
+    color: var(--ice-blue);
+    font-family: var(--font-title);
+
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 0 8px rgba(137, 207, 240, 0.7),
+        0 0 25px rgba(93, 173, 226, 0.4);
+}
+
+.page-subtitle {
+    margin-top: 18px;
+    color: #c4d8e9;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Shared page navigation */
 
 .page-navigation {
     display: flex;
@@ -190,16 +561,258 @@ h3 {
     margin-top: 40px;
     padding-top: 24px;
 
-    border-top: 1px solid var(--border-glow);
+    border-top: 1px solid rgba(137, 207, 240, 0.25);
 }
 
-/* Shared back-to-menu button */
-.back-menu-btn {
+.page-button {
+    margin-top: 25px;
+}
+
+.site-footer {
+    padding: 25px 20px;
+
+    color: #9fb6c9;
+    background: rgba(2, 8, 23, 0.85);
+
+    border-top: 1px solid rgba(137, 207, 240, 0.2);
+
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   09. PREMISE / LORE PAGE
+========================================================= */
+
+.lore-panel {
+    margin: 22px 0;
+    padding: clamp(22px, 5vw, 35px);
+
+    background: var(--panel-bg);
+
+    border: 1px solid var(--border-glow);
+    border-radius: 6px;
+
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.lore-panel h2,
+.credit-section h2 {
+    margin-bottom: 18px;
+    color: var(--ice-blue);
+
+    font-family: var(--font-body);
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+    font-weight: 400;
+}
+
+/* Lore text */
+
+.lore-panel > p,
+.lore-item p,
+.credits-intro p,
+.credit-entry p,
+.closing-message p {
+    color: var(--text-secondary);
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+.lore-panel > p + p {
+    margin-top: 16px;
+}
+
+/* Numbered lore details */
+
+.lore-details {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.lore-item {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 15px;
+    align-items: start;
+}
+
+.item-number {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--ice-blue);
+    border: 1px solid var(--border-blue);
+
+    font-family: var(--font-body);
+}
+
+.lore-item h3 {
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   10. CREDITS PAGE
+========================================================= */
+
+.credits-intro {
+    max-width: 620px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.credit-section {
+    position: relative;
+
+    margin: 25px 0;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: rgba(0, 8, 24, 0.72);
+    border: 1px solid rgba(137, 207, 240, 0.23);
+    border-radius: 5px;
+}
+
+.credit-symbol,
+.closing-star {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--ice-blue);
+    font-size: 1.4rem;
+
+    text-shadow: 0 0 12px rgba(137, 207, 240, 0.8);
+}
+
+.credit-entry {
+    padding: 15px 0;
+}
+
+.credit-entry + .credit-entry {
+    border-top: 1px solid rgba(137, 207, 240, 0.15);
+}
+
+.credit-entry h3 {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.credit-entry p {
+    margin-top: 5px;
+    font-size: 0.82rem;
+}
+
+.closing-message {
+    max-width: 570px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+.closing-star {
+    margin: 15px 0;
+}
+
+
+/* =========================================================
+   11. INTERACTIVE MENU DIALOGS
+   Settings / Tutorial / Other pop-up windows
+========================================================= */
+
+.game-dialog {
+    position: fixed;
+
+    width: min(420px, calc(100% - 32px));
+    max-width: 100%;
+    max-height: 85vh;
+    max-height: 85dvh;
+
+    overflow-y: auto;
+    margin: auto;
+    padding: 35px 25px;
+
+    color: var(--text-primary);
+    background: var(--bg-panel);
+
+    border: 1px solid var(--ice-blue);
+    border-radius: 8px;
+
+    box-shadow: 0 0 35px rgba(93, 173, 226, 0.3);
+
+    font-family: var(--font-body);
+}
+
+.game-dialog::backdrop {
+    background: rgba(0, 3, 12, 0.82);
+    backdrop-filter: blur(5px);
+}
+
+.game-dialog h2 {
+    margin-bottom: 15px;
+    color: var(--ice-blue);
+    font-size: 1.4rem;
+}
+
+.game-dialog p {
+    margin: 12px 0;
+    color: #c3d7e8;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    color: var(--ice-blue);
+    background: transparent;
+    border: 0;
+
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.dialog-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.dialog-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--ice-blue);
+}
+
+
+/* =========================================================
+   12. BACK TO MAIN MENU BUTTON
+   Shared subpage component
+========================================================= */
+
+body a.back-menu-btn {
     display: inline-block;
     position: fixed;
+
     top: 20px;
     left: 20px;
-    z-index: 10;
+    z-index: 99999;
 
     padding: 12px 18px;
 
@@ -213,53 +826,143 @@ h3 {
     font-size: 14px;
     letter-spacing: 1px;
     text-decoration: none;
+
+    opacity: 1;
+    visibility: visible;
 }
 
-.back-menu-btn:hover {
+body a.back-menu-btn:hover {
     background: rgba(35, 57, 79, 0.98);
     border-color: #d8b4fe;
+
     box-shadow: 0 0 12px rgba(139, 169, 196, 0.45);
 }
 
-/* 06. SHARED BUTTON FOCUS */
-a:focus-visible,
-button:focus-visible {
-    outline: 2px solid var(--ice-blue);
-    outline-offset: 4px;
-}
 
-/* 07. SHARED FOOTER */
-.site-footer {
-    padding: 25px 20px;
+/* =========================================================
+   13. PAGE TRANSITIONS AND EFFECTS
+========================================================= */
 
-    color: #9fb6c9;
-    background: rgba(2, 8, 23, 0.85);
+/* Optional page fade-out class */
 
-    border-top: 1px solid var(--border-glow);
-
-    text-align: center;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-}
-
-.site-footer p {
-    margin: 0;
-}
-
-/* 08. ACCESSIBILITY */
 body.page-leaving {
     opacity: 0;
 }
 
-body.reduce-effects * {
-    animation: none !important;
-    transition: none !important;
+/* Disable selected effects when requested by the user */
+
+body.reduce-effects .game-title {
+    animation: none;
 }
 
+body.reduce-effects .btn,
+body.reduce-effects .icon-btn {
+    transition: none;
+}
+
+body.reduce-effects .menu-actions {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* =========================================================
+   14. TABLET LAYOUT
+========================================================= */
+
+@media (max-width: 900px) {
+    .menu-screen {
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .menu-actions {
+        width: min(380px, 90vw);
+    }
+}
+
+
+/* =========================================================
+   15. MOBILE LAYOUT
+========================================================= */
+
 @media (max-width: 600px) {
+
+    /* Global frame */
+
     html {
         border-width: 5px;
     }
+
+    /* Main menu */
+
+    body:not(.subpage) {
+        align-items: center;
+        padding: 0;
+    }
+
+    .menu-screen {
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        padding:
+            max(25px, env(safe-area-inset-top))
+            20px
+            max(25px, env(safe-area-inset-bottom));
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-actions {
+        width: 100%;
+        max-width: 360px;
+
+        padding: 35px 22px;
+        gap: 12px;
+
+        border-radius: 15px;
+    }
+
+    .game-title {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+
+        font-size: clamp(2rem, 11vw, 2.7rem);
+    }
+
+    .main-buttons {
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+
+        padding: 15px 12px;
+
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+
+    .utility-buttons {
+        margin-top: 12px;
+        gap: 20px;
+    }
+
+    .icon-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    .menu-screen::before {
+        top: 20px;
+        left: 22px;
+        font-size: 24px;
+    }
+
+    /* Shared subpage header */
 
     .page-header {
         padding: 17px 18px;
@@ -269,28 +972,115 @@ body.reduce-effects * {
         font-size: 0.76rem;
     }
 
+    .lore-container,
+    .credits-container {
+        padding: 20px 17px 45px;
+    }
+
+    .page-heading {
+        padding: 35px 0 25px;
+    }
+
+    .lore-panel {
+        margin: 16px 0;
+    }
+
+    .credit-section {
+        padding: 25px 15px;
+    }
+
     .page-navigation {
         gap: 15px;
     }
 
-    .back-menu-btn {
+    /* Back to menu button */
+
+    body a.back-menu-btn {
         top: 12px;
         left: 12px;
+
         padding: 10px 12px;
         font-size: 11px;
     }
 }
 
+
+/* =========================================================
+   16. VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .menu-actions {
+        padding: 28px 16px;
+    }
+
+    .game-title {
+        font-size: 1.9rem;
+    }
+
+    .btn {
+        padding: 14px 10px;
+        font-size: 0.78rem;
+    }
+
+}
+
+
+/* =========================================================
+   17. LANDSCAPE PHONES
+========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .menu-screen {
+        padding: 20px;
+    }
+
+    .menu-actions {
+        padding: 25px 30px;
+    }
+
+    .game-title {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px;
+    }
+
+    .utility-buttons {
+        margin-top: 5px;
+    }
+
+    .page-heading {
+        padding: 20px 0;
+    }
+
+}
+
+
+/* =========================================================
+   18. REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
         animation: none !important;
         transition: none !important;
-        scroll-behavior: auto !important;
     }
 
     body {
         transition: none;
     }
+
 }
