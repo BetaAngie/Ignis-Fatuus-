@@ -1006,3 +1006,41 @@ padding: 12px 16px;
 font-size: 12px;
 }
 }
+
+/* ===== BACK TO MAIN MENU BUTTON ===== */
+a.back-menu-btn {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+
+    margin: 20px;
+    padding: 12px 20px;
+
+    color: #e8f7ff;
+    background: rgba(2, 8, 23, 0.90);
+    border: 1px solid #8ba9c4;
+    border-radius: 4px;
+
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a.back-menu-btn:hover {
+    color: #ffffff;
+    background: rgba(35, 57, 79, 0.95);
+    border-color: #d8b4fe;
+    box-shadow: 0 0 12px rgba(139, 169, 196, 0.45);
+}
+
+@media (max-width: 600px) {
+    a.back-menu-btn {
+        margin: 12px;
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+}
