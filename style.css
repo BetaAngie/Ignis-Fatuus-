@@ -294,3 +294,29 @@ body.reduce-effects * {
         transition: none;
     }
 }
+
+/* TEMPORARY: Restore main menu button appearance */
+.menu-actions .btn {
+  display: block;
+  width: min(280px, 80vw);
+  box-sizing: border-box;
+  margin: 12px auto;
+  padding: 14px 20px;
+
+  color: #d8b4fe;
+  background: rgba(15, 20, 40, 0.9);
+  border: 1px solid #a5c8ff;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-actions .btn:hover,
+.menu-actions .btn:focus-visible {
+  background: rgba(100, 130, 190, 0.25);
+  box-shadow: 0 0 14px rgba(165, 200, 255, 0.45);
+}
