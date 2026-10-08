@@ -43,41 +43,48 @@ margin-left: max(0px, 8vw);
 
 
 /* =========================================
-   BACKGROUND
+   BACKGROUND - ALL PAGES 
    ========================================= */
+body {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+}
 
+/* GIF layer */
 body::before {
     content: "";
-
     position: fixed;
     inset: 0;
+    z-index: 0;
 
     background-image: url("images/NiviaBackground.gif");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    z-index: -2;
+    pointer-events: none;
 }
 
-/* Dark overlay over background */
-
+/* Dark overlay above the GIF */
 body::after {
     content: "";
-
     position: fixed;
     inset: 0;
+    z-index: 1;
 
-    background:
-        linear-gradient(
-            rgba(0, 4, 15, 0.25),
-            rgba(0, 4, 15, 0.45)
-        );
-
-    z-index: -1;
+    background: linear-gradient(
+        rgba(0, 4, 15, 0.25),
+        rgba(0, 4, 15, 0.45)
+    );
 
     pointer-events: none;
+}
+
+/* Page content above both background layers */
+body > * {
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -964,70 +971,4 @@ body.page-leaving {
         transition: none;
     }
 
-}
-
-
-
-/* ===== FIX: IGNIS FATUUS PAGE BACKGROUND ===== */
-
-html {
-    min-height: 100%;
-    background-color: #020817;
-}
-
-body {
-    position: relative;
-    isolation: isolate;
-    min-height: 100vh;
-    margin: 0;
-    color: #e8f7ff;
-    background: transparent;
-}
-
-/* Animated background image */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background-image: url("images/NiviaBackground.gif");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    pointer-events: none;
-}
-
-/* Dark overlay to keep text readable */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: rgba(2, 8, 23, 0.62);
-    pointer-events: none;
-}
-
-/* Keep the content above the background */
-body > * {
-    position: relative;
-}
-
-/* Ensure interactive panels have visible surfaces */
-.story-panel,
-.evidence-panel,
-.premise-panel,
-.lore-panel,
-.credits-container {
-    color: #e8f7ff;
-    background-color: rgba(4, 17, 42, 0.90);
-    border: 1px solid #426b91;
-    box-shadow: 0 0 24px rgba(72, 145, 200, 0.18);
-}
-
-/* Mobile background support */
-@media (max-width: 600px) {
-    body::before {
-        background-position: center;
-        background-size: cover;
-    }
 }
