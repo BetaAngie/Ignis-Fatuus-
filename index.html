@@ -49,10 +49,40 @@
 
   <a class="btn" href="credits.html">Credits</a>
 
-  <div class="utility-buttons">
-    <button class="icon-btn" type="button" title="Settings">⚙</button>
-    <button class="icon-btn" type="button" title="Tutorial">?</button>
-  </div>
+
+<div class="utility-buttons">
+  <button
+    class="icon-btn"
+    id="settingsBtn"
+    type="button"
+    aria-label="Open settings"
+    title="Settings">
+    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+  </button>
+
+  <button
+    class="icon-btn"
+    id="tutorialBtn"
+    type="button"
+    aria-label="Open tutorial"
+    title="Tutorial">
+    <i class="fa-solid fa-question" aria-hidden="true"></i>
+  </button>
+</div>
+
+<dialog class="game-dialog" id="gameDialog">
+  <button
+    class="dialog-close"
+    id="closeDialog"
+    type="button"
+    aria-label="Close dialog">
+    ×
+  </button>
+
+  <div id="dialogContent"></div>
+</dialog>
+
+<script src="script.js"></script>
 
 </nav>
 

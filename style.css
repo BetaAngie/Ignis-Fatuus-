@@ -408,6 +408,386 @@ body::after {
 
 
 /* =========================================
+   SUBPAGES: PREMISE & CREDITS
+   ========================================= */
+
+.subpage {
+    display: block;
+    min-height: 100vh;
+    padding: 0;
+    background: #020817;
+}
+
+.subpage::before {
+    background-image: url("images/NiviaBackground.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.subpage::after {
+    background: rgba(2, 8, 23, 0.78);
+}
+
+.page-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px clamp(20px, 6vw, 70px);
+    background: rgba(2, 8, 23, 0.8);
+    border-bottom: 1px solid rgba(137, 207, 240, 0.3);
+}
+
+.back-link,
+.page-navigation a {
+    color: #b9e8ff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover,
+.page-navigation a:hover {
+    color: white;
+    text-shadow: 0 0 10px #89CFF0;
+}
+
+.header-symbol {
+    color: #89CFF0;
+    font-size: 1.5rem;
+    text-shadow: 0 0 12px #89CFF0;
+}
+
+.lore-container,
+.credits-container {
+    width: min(850px, 100%);
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+}
+
+.page-heading {
+    padding: 45px 0 35px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: #89CFF0;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.page-title {
+    color: #89CFF0;
+    font-family: "UnifrakturCook", cursive;
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-shadow:
+        0 0 8px rgba(137, 207, 240, 0.7),
+        0 0 25px rgba(93, 173, 226, 0.4);
+}
+
+.page-subtitle {
+    margin-top: 18px;
+    color: #c4d8e9;
+    font-family: "Cinzel", serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.lore-panel {
+    margin: 22px 0;
+    padding: clamp(22px, 5vw, 35px);
+    background: rgba(0, 8, 24, 0.82);
+    border: 1px solid rgba(137, 207, 240, 0.28);
+    border-radius: 6px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.lore-panel h2,
+.credit-section h2 {
+    margin-bottom: 18px;
+    color: #89CFF0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+    font-weight: 400;
+}
+
+.lore-panel > p,
+.lore-item p,
+.credits-intro p,
+.credit-entry p,
+.closing-message p {
+    color: #c3cbdc;
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+.lore-panel > p + p {
+    margin-top: 16px;
+}
+
+.lore-details {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.lore-item {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 15px;
+    align-items: start;
+}
+
+.item-number {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: #89CFF0;
+    border: 1px solid #4d7ea8;
+    font-family: "Cinzel", serif;
+}
+
+.lore-item h3 {
+    margin-bottom: 6px;
+    color: #e8f7ff;
+    font-size: 1rem;
+}
+
+.page-button {
+    margin-top: 25px;
+}
+
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(137, 207, 240, 0.25);
+}
+
+/* Credits page */
+
+.credits-intro {
+    max-width: 620px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.credit-section {
+    position: relative;
+    margin: 25px 0;
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(0, 8, 24, 0.72);
+    border: 1px solid rgba(137, 207, 240, 0.23);
+    border-radius: 5px;
+}
+
+.credit-symbol,
+.closing-star {
+    display: block;
+    margin-bottom: 12px;
+    color: #89CFF0;
+    font-size: 1.4rem;
+    text-shadow: 0 0 12px rgba(137, 207, 240, 0.8);
+}
+
+.credit-entry {
+    padding: 15px 0;
+}
+
+.credit-entry + .credit-entry {
+    border-top: 1px solid rgba(137, 207, 240, 0.15);
+}
+
+.credit-entry h3 {
+    color: #e8f7ff;
+    font-family: "Cinzel", serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.credit-entry p {
+    margin-top: 5px;
+    font-size: 0.82rem;
+}
+
+.closing-message {
+    max-width: 570px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+.closing-star {
+    margin: 15px 0;
+}
+
+.site-footer {
+    padding: 25px 20px;
+    color: #9fb6c9;
+    background: rgba(2, 8, 23, 0.85);
+    border-top: 1px solid rgba(137, 207, 240, 0.2);
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+    .page-header {
+        padding: 17px 18px;
+    }
+
+    .back-link {
+        font-size: 0.76rem;
+    }
+
+    .lore-container,
+    .credits-container {
+        padding: 20px 17px 45px;
+    }
+
+    .page-heading {
+        padding: 35px 0 25px;
+    }
+
+    .lore-panel {
+        margin: 16px 0;
+    }
+
+    .credit-section {
+        padding: 25px 15px;
+    }
+
+    .page-navigation {
+        gap: 15px;
+    }
+}
+
+/* Landscape phones and reduced motion */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .page-heading {
+        padding: 20px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* Interactive menu dialogs */
+
+.game-dialog {
+    width: min(420px, calc(100% - 32px));
+    max-height: 85dvh;
+    overflow-y: auto;
+    margin: auto;
+    padding: 35px 25px;
+    color: #e8f7ff;
+    background: #061124;
+    border: 1px solid #89CFF0;
+    border-radius: 8px;
+    box-shadow: 0 0 35px rgba(93, 173, 226, 0.3);
+    font-family: "Cinzel", serif;
+}
+
+.game-dialog::backdrop {
+    background: rgba(0, 3, 12, 0.82);
+    backdrop-filter: blur(5px);
+}
+
+.game-dialog h2 {
+    margin-bottom: 15px;
+    color: #89CFF0;
+    font-size: 1.4rem;
+}
+
+.game-dialog p {
+    margin: 12px 0;
+    color: #c3d7e8;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: #89CFF0;
+    background: transparent;
+    border: 0;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.dialog-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.dialog-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: #89CFF0;
+}
+
+body.reduce-effects .game-title {
+    animation: none;
+}
+
+body.reduce-effects .btn,
+body.reduce-effects .icon-btn {
+    transition: none;
+}
+
+body.reduce-effects .menu-actions {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+body {
+    opacity: 1;
+    transition: opacity 180ms ease;
+}
+
+body.page-leaving {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        transition: none;
+    }
+}
+
+
+/* =========================================
    TABLET
    ========================================= */
 
