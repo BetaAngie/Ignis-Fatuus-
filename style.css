@@ -973,74 +973,39 @@ body.page-leaving {
 
 }
 
-/* Back to Main Menu button */
-.back-menu-btn {
-display: inline-block;
-margin: 20px;
-padding: 12px 20px;
+/* ===== FORCE BACK TO MAIN MENU BUTTON VISIBLE ===== */
+body a.back-menu-btn {
+    display: inline-block !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 99999 !important;
 
-color: #e8f7ff;
-background: rgba(2, 8, 23, 0.85);
-border: 1px solid #8ba9c4;
-border-radius: 4px;
+    padding: 12px 18px !important;
+    color: #e8f7ff !important;
+    background: rgba(2, 8, 23, 0.95) !important;
+    border: 1px solid #8ba9c4 !important;
+    border-radius: 4px !important;
 
-font-family: 'Cinzel', serif;
-font-size: 14px;
-text-decoration: none;
-letter-spacing: 1px;
-
-transition: background 0.3s ease, box-shadow 0.3s ease;
-
+    font-family: 'Cinzel', serif !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    letter-spacing: 1px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-.back-menu-btn:hover {
-background: rgba(35, 57, 79, 0.95);
-box-shadow: 0 0 12px rgba(139, 169, 196, 0.45);
-}
-
-/* Keep the button easy to tap on mobile */
-@media (max-width: 600px) {
-.back-menu-btn {
-margin: 12px;
-padding: 12px 16px;
-font-size: 12px;
-}
-}
-
-/* ===== BACK TO MAIN MENU BUTTON ===== */
-a.back-menu-btn {
-    display: inline-block;
-    position: relative;
-    z-index: 10;
-
-    margin: 20px;
-    padding: 12px 20px;
-
-    color: #e8f7ff;
-    background: rgba(2, 8, 23, 0.90);
-    border: 1px solid #8ba9c4;
-    border-radius: 4px;
-
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-decoration: none;
-
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-a.back-menu-btn:hover {
-    color: #ffffff;
-    background: rgba(35, 57, 79, 0.95);
-    border-color: #d8b4fe;
-    box-shadow: 0 0 12px rgba(139, 169, 196, 0.45);
+body a.back-menu-btn:hover {
+    background: rgba(35, 57, 79, 0.98) !important;
+    border-color: #d8b4fe !important;
+    box-shadow: 0 0 12px rgba(139, 169, 196, 0.45) !important;
 }
 
 @media (max-width: 600px) {
-    a.back-menu-btn {
-        margin: 12px;
-        padding: 12px 16px;
-        font-size: 12px;
+    body a.back-menu-btn {
+        top: 12px !important;
+        left: 12px !important;
+        padding: 10px 12px !important;
+        font-size: 11px !important;
     }
 }
