@@ -472,3 +472,116 @@ body.reduce-effects .menu-actions {
         padding: 30px;
     }
 }
+
+
+/* ==========================================
+   ACCESSIBILITY & TUTORIAL DIALOG CONTENT
+========================================== */
+
+.game-dialog {
+    box-sizing: border-box;
+}
+
+.game-dialog h3 {
+    margin: 18px 0 6px;
+    color: #89CFF0;
+    font-size: 1rem;
+}
+
+.game-dialog .dialog-option {
+    align-items: flex-start;
+    line-height: 1.6;
+}
+
+.game-dialog .dialog-option input {
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.game-dialog .dialog-option small {
+    color: #c3d7e8;
+    font-size: 0.8rem;
+}
+
+.settings-reset {
+    width: 100%;
+    max-width: none;
+    margin-top: 22px;
+    cursor: pointer;
+}
+
+.settings-status {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.tutorial-entry {
+    padding: 4px 0 12px;
+    border-bottom: 1px solid rgba(137, 207, 240, 0.18);
+}
+
+.tutorial-entry p {
+    margin: 6px 0;
+}
+
+.tutorial-footer {
+    margin-top: 22px !important;
+    color: #89CFF0 !important;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Larger text */
+body.large-text {
+    font-size: 18px;
+}
+
+body.large-text .btn {
+    font-size: 1.05rem;
+}
+
+body.large-text .game-title {
+    font-size: clamp(2.3rem, 6vw, 3.3rem);
+}
+
+body.large-text .game-dialog p,
+body.large-text .game-dialog small {
+    font-size: 1rem;
+}
+
+/* High contrast */
+body.high-contrast .menu-actions {
+    background: #000;
+    border-color: #b8eaff;
+}
+
+body.high-contrast .btn {
+    color: #fff;
+    background: #000;
+    border-color: #b8eaff;
+}
+
+body.high-contrast .game-dialog {
+    color: #fff;
+    background: #000;
+    border: 2px solid #b8eaff;
+}
+
+body.high-contrast .game-dialog p,
+body.high-contrast .game-dialog small {
+    color: #fff;
+}
+
+body.high-contrast .game-dialog h2,
+body.high-contrast .game-dialog h3 {
+    color: #b8eaff;
+}
+
+/* Keep reduced-motion preferences accessible */
+body.reduce-effects *,
+body.reduce-effects *::before,
+body.reduce-effects *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+}
