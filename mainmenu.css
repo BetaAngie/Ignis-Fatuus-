@@ -20,7 +20,7 @@ body:not(.subpage):not(.premise-page) {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 40px 40px 40px 8vw;
     box-sizing: border-box;
 }
 
@@ -31,7 +31,7 @@ body:not(.subpage):not(.premise-page) {
     width: min(600px, 90vw);
     min-height: 600px;
 
-    margin: 0 auto;
+    margin: 0;
     padding: 55px 60px;
     box-sizing: border-box;
 
