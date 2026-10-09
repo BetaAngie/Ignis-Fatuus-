@@ -1,7 +1,7 @@
 
 /* ==================================================
    IGNIS FATUUS — NEW JOURNEY
-   File: js/new-journey.js
+
 ================================================== */
 
 // Replace this with your actual Discord server invite.
