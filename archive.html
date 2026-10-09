@@ -1,61 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive | Ignis Fatuus</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description"
+          content="Ignis Fatuus — classified character archive.">
+
+    <title>Character Archive | Ignis Fatuus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="archive.css">
+    <script src="archive.js" defer></script>
 </head>
 
-<a href="index.html" class="back-menu-btn">← Back to Main Menu</a>
+<body class="evidence-page">
 
+    <main class="archive">
 
-<section class="evidence-panel">
-    <h2>Recovered Evidence</h2>
-    <p>Three records have been recovered. Inspect each one.</p>
+        <header class="archive-header">
+            <a class="back-link" href="index.html">
+                <span aria-hidden="true">←</span>
+                Return to Main Menu
+            </a>
 
-    <button class="evidence-card" data-clue="one">
-        Evidence 01 — The Clock
-    </button>
+            <div class="archive-heading">
+                <p class="eyebrow">IGNIS FATUUS // RESTRICTED ACCESS</p>
 
-    <p id="clue-one" hidden>
-        The clock stopped at 08:15.
-    </p>
+                <h1>Character Archive</h1>
 
-    <button class="evidence-card" data-clue="two">
-        Evidence 02 — The Report
-    </button>
+                <p class="archive-subtitle">
+                    Five files. Five unknown identities.
+                    Information remains classified.
+                </p>
 
-    <p id="clue-two" hidden>
-        The report was signed at 08:15.
-    </p>
+                <div class="archive-divider">
+                    <span>✦</span>
+                </div>
+            </div>
+        </header>
 
-    <button class="evidence-card" data-clue="three">
-        Evidence 03 — The Recording
-    </button>
+        <section class="character-section"
+                 aria-label="Classified character files">
 
-    <p id="clue-three" hidden>
-        The recording begins at 08:15.
-    </p>
+            <div class="section-label">
+                <span>PERSONNEL RECORDS</span>
+                <span class="clearance">CLEARANCE: RESTRICTED</span>
+            </div>
 
-    <form id="puzzle-form">
-        <label for="puzzle-answer">
-            What time appears in all three records?
-        </label>
+            <div class="carousel" id="character-carousel">
 
-        <input
-            id="puzzle-answer"
-            name="answer"
-            type="text"
-            placeholder="Enter your answer"
-            autocomplete="off"
-            required>
+                <button class="carousel-arrow previous"
+                        id="previous-character"
+                        type="button"
+                        aria-label="Previous character">
+                    &#10094;
+                </button>
 
-        <button type="submit">Submit Answer</button>
-    </form>
+                <div class="carousel-viewport" id="carousel-viewport">
+                    <div class="carousel-track" id="carousel-track">
 
-    <p id="puzzle-feedback" aria-live="polite"></p>
-    <p id="secret-message" hidden>
-        FILE UNLOCKED: You found the first inconsistency.
-    </p>
+                        <!-- SUBJECT 01 -->
+                        <article class="character-card"
+                                 data-character="0">
+                            <div class="file-topline">
+                                <span class="file-number">IF-001</span>
+                                <span class="lock-status">● CLASSIFIED</span>
+                            </div>
+
+                            <div class="portrait-frame">
+                                <img
+                                    class="character-portrait"
+                                    src="subject-01-silhouette.png"
+                                    alt="Silhouette of a classified character"
+                                    draggable="false">
+
+                                <span class="portrait-stamp">
+                                    IDENTITY WITHHELD
+                                </span>
+                            </div>
+
+                            <div class="character-info">
+                                <p class="file-category">PERSONNEL FILE</p>
+                                <h2 class="character-name">SUBJECT 01</h2>
+                                <p class="character-description">
+                                    Further information is restricted.
+                                </p>
+                            </div>
+
+                            <div class="file-footer">
+                                <span>STATUS: SEALED</span>
+                                <span>IF / 001</span>
+                            </div>
+                        </article>
+
+                        <!-- SUBJECT 02 -->
+                        <article class="character-card"
+                                 data-character="1">
+                            <div class="file-topline">
+                                <span class="file-number">IF-002</span>
+                                <span class="lock-status">● CLASSIFIED</span>
+                            </div>
+
+                            <div class="portrait-frame">
+                                <img
+                                    class="character-portrait"
+                                    src="subject-02-silhouette.png"
+                                    alt="Silhouette of a classified character"
+                                    draggable="false">
+
+                                <span class="portrait-stamp">
+                                    IDENTITY WITHHELD
+                                </span>
+                            </div>
+
+                            <div class="character-info">
+                                <p class="file-category">PERSONNEL FILE</p>
+                                <h2 class="character-name">SUBJECT 02</h2>
+                                <p class="character-description">
+                                    Further information is restricted.
+                                </p>
+                            </div>
+
+                            <div class="file-footer">
+                                <span>STATUS: SEALED</span>
+                                <span>IF / 002</span>
+                            </div>
+                        </article>
+
+                        <!-- SUBJECT 03 -->
+                        <article class="character-card"
+                                 data-character="2">
+                            <div class="file-topline">
+                                <span class="file-number">IF-003</span>
+                                <span class="lock-status">● CLASSIFIED</span>
+                            </div>
+
+                            <div class="portrait-frame">
+                                <img
+                                    class="character-portrait"
+                                    src="subject-03-silhouette.png"
+                                    alt="Silhouette of a classified character"
+                                    draggable="false">
+
+                                <span class="portrait-stamp">
+                                    IDENTITY WITHHELD
+                                </span>
+                            </div>
+
+                            <div class="character-info">
+                                <p class="file-category">PERSONNEL FILE</p>
+                                <h2 class="character-name">SUBJECT 03</h2>
+                                <p class="character-description">
+                                    Further information is restricted.
+                                </p>
+                            </div>
+
+                            <div class="file-footer">
+                                <span>STATUS: SEALED</span>
+                                <span>IF / 003</span>
+                            </div>
+                        </article>
+
+                        <!-- SUBJECT 04 -->
+                        <article class="character-card"
+                                 data-character="3">
+                            <div class="file-topline">
+                                <span class="file-number">IF-004</span>
+                                <span class="lock-status">● CLASSIFIED</span>
+                            </div>
+
+                            <div class="portrait-frame">
+                                <img
+                                    class="character-portrait"
+                                    src="subject-04-silhouette.png"
+                                    alt="Silhouette of a classified character"
+                                    draggable="false">
+
+                                <span class="portrait-stamp">
+                                    IDENTITY WITHHELD
+                                </span>
+                            </div>
+
+                            <div class="character-info">
+                                <p class="file-category">PERSONNEL FILE</p>
+                                <h2 class="character-name">SUBJECT 04</h2>
+                                <p class="character-description">
+                                    Further information is restricted.
+                                </p>
+                            </div>
+
+                            <div class="file-footer">
+                                <span>STATUS: SEALED</span>
+                                <span>IF / 004</span>
+                            </div>
+                        </article>
+
+                        <!-- SUBJECT 05 -->
+                        <article class="character-card"
+                                 data-character="4">
+                            <div class="file-topline">
+                                <span class="file-number">IF-005</span>
+                                <span class="lock-status">● CLASSIFIED</span>
+                            </div>
+
+                            <div class="portrait-frame">
+                                <img
+                                    class="character-portrait"
+                                    src="subject-05-silhouette.png"
+                                    alt="Silhouette of a classified character"
+                                    draggable="false">
+
+                                <span class="portrait-stamp">
+                                    IDENTITY WITHHELD
+                                </span>
+                            </div>
+
+                            <div class="character-info">
+                                <p class="file-category">PERSONNEL FILE</p>
+                                <h2 class="character-name">SUBJECT 05</h2>
+                                <p class="character-description">
+                                    Further information is restricted.
+                                </p>
+                            </div>
+
+                            <div class="file-footer">
+                                <span>STATUS: SEALED</span>
+                                <span>IF / 005</span>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <button class="carousel-arrow next"
+                        id="next-character"
+                        type="button"
+                        aria-label="Next character">
+                    &#10095;
+                </button>
+            </div>
+
+            <div class="carousel-controls">
+                <p class="file-counter" id="file-counter"
+                   aria-live="polite">FILE 01 / 05</p>
+
+                <div class="carousel-dots"
+                     id="carousel-dots"
+                     aria-label="Select a character file">
+
+                    <button class="carousel-dot active"
+                            type="button"
+                            aria-label="View subject 1"
+                            aria-current="true"
+                            data-index="0"></button>
+
+                    <button class="carousel-dot"
+                            type="button"
+                            aria-label="View subject 2"
+                            data-index="1"></button>
+
+                    <button class="carousel-dot"
+                            type="button"
+                            aria-label="View subject 3"
+                            data-index="2"></button>
+
+                    <button class="carousel-dot"
+                            type="button"
+                            aria-label="View subject 4"
+                            data-index="3"></button>
+
+                    <button class="carousel-dot"
+                            type="button"
+                            aria-label="View subject 5"
+                            data-index="4"></button>
+                </div>
+
+                <p class="swipe-hint">← SWIPE TO INVESTIGATE →</p>
+            </div>
+
+        </section>
+
+    
+<!-- CAST ARCHIVE -->
+<section class="cast-section" aria-label="Additional cast">
+
+    <div class="cast-heading">
+        <p class="cast-eyebrow">ADDITIONAL PERSONNEL</p>
+        <h2>Cast</h2>
+        <p class="cast-description">
+            Other identities remain beyond the reach of this archive.
+        </p>
+    </div>
+
+    <div class="cast-carousel" id="cast-carousel">
+
+        <button class="cast-arrow"
+                id="cast-previous"
+                type="button"
+                aria-label="Previous cast entry">
+            &#10094;
+        </button>
+
+        <div class="cast-viewport" id="cast-viewport">
+            <div class="cast-track" id="cast-track">
+
+                <article class="cast-card">
+                    <span class="cast-file-number">CAST // 001</span>
+                    <div class="cast-banner">
+                        <span class="cast-banner-icon">✦</span>
+                        <h3>TO BE FOUND LATER</h3>
+                    </div>
+                    <p>Additional records remain undiscovered.</p>
+                </article>
+
+                <article class="cast-card">
+                    <span class="cast-file-number">CAST // 002</span>
+                    <div class="cast-banner">
+                        <span class="cast-banner-icon">✦</span>
+                        <h3>TO BE FOUND LATER</h3>
+                    </div>
+                    <p>This record has not yet been recovered.</p>
+                </article>
+
+                <article class="cast-card">
+                    <span class="cast-file-number">CAST // 003</span>
+                    <div class="cast-banner">
+                        <span class="cast-banner-icon">✦</span>
+                        <h3>TO BE FOUND LATER</h3>
+                    </div>
+                    <p>Further information is unavailable.</p>
+                </article>
+
+            </div>
+        </div>
+
+        <button class="cast-arrow"
+                id="cast-next"
+                type="button"
+                aria-label="Next cast entry">
+            &#10095;
+        </button>
+
+    </div>
+
+    <div class="cast-controls">
+        <span id="cast-counter" aria-live="polite">
+            CAST FILE 01 / 03
+        </span>
+
+        <div class="cast-dots" id="cast-dots">
+            <button class="cast-dot active"
+                    type="button"
+                    aria-label="View cast entry 1"
+                    aria-current="true"
+                    data-index="0"></button>
+
+            <button class="cast-dot"
+                    type="button"
+                    aria-label="View cast entry 2"
+                    data-index="1"></button>
+
+            <button class="cast-dot"
+                    type="button"
+                    aria-label="View cast entry 3"
+                    data-index="2"></button>
+        </div>
+    </div>
+
 </section>
 
-<script src="archive.js"></script>
+        <footer class="archive-footer">
+            <p>UNAUTHORIZED ACCESS IS PROHIBITED.</p>
+            <p>IGNIS FATUUS // PERSONNEL DATABASE</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
