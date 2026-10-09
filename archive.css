@@ -6,10 +6,10 @@
 body.evidence-page {
     --archive-bg: #0b1020;
     --card-bg: #101629;
-    --lavender: #d8b4fe;
-    --muted-lavender: #8c7ba8;
-    --border-color: rgba(190, 164, 230, 0.28);
-    --text-color: #e7e0f2;
+    --Blue: #A9C7E8;
+    --muted-blue: #263E60;
+    --border-color: rgba(21, 43, 88, 0.28);
+    --text-color: #D4DCE8;
 
     margin: 0;
     min-height: 100vh;
@@ -18,7 +18,7 @@ body.evidence-page {
     background:
         radial-gradient(
             ellipse at 50% 35%,
-            rgba(72, 49, 105, 0.20),
+            rgba(49, 59, 105, 0.2),
             transparent 65%
         ),
         var(--archive-bg);
@@ -71,7 +71,7 @@ body.evidence-page {
 }
 
 .back-link:hover {
-    color: var(--lavender);
+    color: var(--Blue);
 }
 
 .back-link span {
@@ -85,24 +85,24 @@ body.evidence-page {
 }
 
 .eyebrow {
-    color: var(--muted-lavender);
+    color: var(--muted-blue);
     font-size: 0.68rem;
     letter-spacing: 0.24em;
 }
 
 .archive-heading h1 {
     margin: 14px 0;
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 500;
     letter-spacing: 0.09em;
-    text-shadow: 0 0 25px rgba(216, 180, 254, 0.15);
+    text-shadow: 0 0 25px rgba(169, 199, 232, 0.15);
 }
 
 .archive-subtitle {
     max-width: 480px;
     margin: 0 auto;
-    color: #aaa2bd;
+    color: var(--text-color);
     font-family: Georgia, serif;
     font-size: 0.95rem;
     line-height: 1.8;
@@ -114,7 +114,7 @@ body.evidence-page {
     justify-content: center;
     gap: 15px;
     margin-top: 26px;
-    color: var(--lavender);
+    color: var(--Blue);
 }
 
 .archive-divider::before,
@@ -126,7 +126,7 @@ body.evidence-page {
 }
 
 .archive-divider span {
-    text-shadow: 0 0 12px var(--lavender);
+    text-shadow: 0 0 12px var(--Blue);
 }
 
 /* SECTION LABEL */
@@ -241,18 +241,18 @@ body.evidence-page {
     align-items: center;
     gap: 8px;
 
-    color: #a69ab9;
+    color: var(--text-color);
     font-size: 0.57rem;
     letter-spacing: 0.08em;
 }
 
 .file-number {
-    color: var(--lavender);
+    color: var(--Blue);
 }
 
 .lock-status {
     font-size: 0.52rem;
-    color: #ad8bbd;
+    color: var(--text-color);
 }
 
 /* PORTRAIT */
@@ -275,7 +275,7 @@ body.evidence-page {
         ),
         linear-gradient(180deg, #17192d, #0c1120);
 
-    border: 1px solid rgba(190, 164, 230, 0.17);
+    border: 1px solid rgba(21, 43, 88, 0.17);
 }
 
 .portrait-frame::before {
@@ -315,7 +315,7 @@ body.evidence-page {
     max-width: calc(100% - 24px);
     padding: 7px 10px;
 
-    color: #d3c0e8;
+    color: var(--text-color);
     background: rgba(12, 16, 32, 0.88);
     border: 1px solid rgba(216, 180, 254, 0.48);
 
@@ -336,14 +336,14 @@ body.evidence-page {
 
 .file-category {
     margin: 2px 0 9px;
-    color: #87769f;
+    color: var(--text-color);
     font-size: 0.57rem;
     letter-spacing: 0.18em;
 }
 
 .character-name {
     margin: 0;
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.07em;
@@ -353,7 +353,7 @@ body.evidence-page {
     max-width: 230px;
     margin: 12px auto 0;
 
-    color: #aaa2b9;
+    color: var(--text-color);
     font-family: Georgia, serif;
     font-size: 0.82rem;
     line-height: 1.6;
@@ -376,7 +376,7 @@ body.evidence-page {
     height: 48px;
     flex: 0 0 42px;
 
-    color: var(--lavender);
+    color: var(--Blue);
     background: rgba(25, 23, 44, 0.85);
     border: 1px solid var(--border-color);
     border-radius: 3px;
@@ -391,7 +391,7 @@ body.evidence-page {
 
 .carousel-arrow:hover {
     background: rgba(85, 60, 111, 0.45);
-    border-color: var(--lavender);
+    border-color: var(--Blue);
 }
 
 .carousel-arrow:active {
@@ -400,7 +400,7 @@ body.evidence-page {
 
 .evidence-page button:focus-visible,
 .evidence-page a:focus-visible {
-    outline: 2px solid var(--lavender);
+    outline: 2px solid var(--Blue);
     outline-offset: 4px;
 }
 
@@ -418,7 +418,7 @@ body.evidence-page {
 
 .file-counter {
     margin: 0;
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: 0.65rem;
     letter-spacing: 0.18em;
 }
@@ -435,8 +435,8 @@ body.evidence-page {
     height: 9px;
     padding: 0;
 
-    background: #39334c;
-    border: 1px solid #716084;
+    background: #2f2e50;
+    border: 1px solid #5c578c;
     border-radius: 50%;
 
     cursor: pointer;
@@ -447,15 +447,15 @@ body.evidence-page {
 }
 
 .carousel-dot.active {
-    background: var(--lavender);
-    border-color: var(--lavender);
-    box-shadow: 0 0 12px rgba(216, 180, 254, 0.5);
+    background: var(--Blue);
+    border-color: var(--Blue);
+    box-shadow: 0 0 12px rgba(85, 60, 111, 0.5);
     transform: scale(1.2);
 }
 
 .swipe-hint {
     margin: 0;
-    color: #766d8b;
+    color: var(--text-color);
     font-size: 0.57rem;
     letter-spacing: 0.14em;
 }
@@ -613,14 +613,14 @@ body.evidence-page {
 }
 
 .cast-eyebrow {
-    color: var(--muted-lavender);
+    color: var(--muted-Blue);
     font-size: 0.62rem;
     letter-spacing: 0.2em;
 }
 
 .cast-heading h2 {
     margin: 10px 0;
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -628,7 +628,7 @@ body.evidence-page {
 }
 
 .cast-description {
-    color: #aaa2bd;
+    color: var(--text-color);
     font-family: Georgia, serif;
     font-size: 0.9rem;
     line-height: 1.7;
@@ -673,7 +673,7 @@ body.evidence-page {
 .cast-file-number {
     display: block;
     margin-bottom: 14px;
-    color: var(--muted-lavender);
+    color: var(--muted-Blue);
     font-size: 0.6rem;
     letter-spacing: 0.14em;
     text-align: left;
@@ -693,13 +693,13 @@ body.evidence-page {
 }
 
 .cast-banner-icon {
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: 1rem;
 }
 
 .cast-banner h3 {
     margin: 0;
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: clamp(0.7rem, 2.5vw, 0.95rem);
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -720,14 +720,14 @@ body.evidence-page {
     height: 42px;
     flex: 0 0 36px;
 
-    color: var(--lavender);
+    color: var(--Blue);
     background: rgba(25, 23, 44, 0.85);
     border: 1px solid var(--border-color);
     cursor: pointer;
 }
 
 .cast-arrow:hover {
-    border-color: var(--lavender);
+    border-color: var(--Blue);
     background: rgba(85, 60, 111, 0.45);
 }
 
@@ -738,7 +738,7 @@ body.evidence-page {
     gap: 14px;
     margin-top: 8px;
 
-    color: var(--lavender);
+    color: var(--Blue);
     font-size: 0.62rem;
     letter-spacing: 0.12em;
 }
@@ -760,9 +760,9 @@ body.evidence-page {
 }
 
 .cast-dot.active {
-    background: var(--lavender);
-    border-color: var(--lavender);
-    box-shadow: 0 0 10px rgba(216, 180, 254, 0.45);
+    background: var(--Blue);
+    border-color: var(--Blue);
+    box-shadow: 0 0 10px rgba(85, 60, 111, 0.45);
 }
 
 @media (max-width: 480px) {
