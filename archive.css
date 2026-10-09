@@ -791,3 +791,58 @@ body.evidence-page {
         padding: 10px 6px;
     }
 }
+
+
+/* =========================================
+   CHARACTER ARCHIVE — ONE CARD AT A TIME
+========================================= */
+
+#character-carousel {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+#carousel-track {
+    display: flex;
+    align-items: stretch;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+#carousel-track .character-card {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Keep the archive centered */
+#character-carousel .character-card {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Prevent neighboring cards from showing */
+#carousel-viewport {
+    position: relative;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    #character-carousel {
+        max-width: 100%;
+    }
+
+    #carousel-track .character-card {
+        padding: 18px;
+    }
+}
