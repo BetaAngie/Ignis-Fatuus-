@@ -454,3 +454,21 @@ body.reduce-effects .menu-actions {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
+
+
+/* Desktop — slightly left of center */
+@media (min-width: 901px) {
+    .menu-screen {
+        justify-content: flex-start;
+        padding-left: 8vw;
+        padding-right: 40px;
+    }
+}
+
+/* Mobile — keep centered */
+@media (max-width: 900px) {
+    .menu-screen {
+        justify-content: center;
+        padding: 30px;
+    }
+}
