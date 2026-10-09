@@ -187,24 +187,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ==============================================
        4. POSITION CHARACTER CAROUSEL
-    ============================================== */
+    ============================================== */ 
+function positionCarousel() {
+    if (!viewport || !track || !cards.length) return;
 
-    function positionCarousel() {
-        if (!viewport || !track || !cards.length) return;
+    const activeCard = cards[activeIndex];
+    if (!activeCard) return;
 
-        const activeCard = cards[activeIndex];
+    // Move the track by exactly one viewport width per card.
+    const viewportWidth = viewport.clientWidth;
+    const offset = activeIndex * viewportWidth;
 
-        if (!activeCard) return;
-
-        const viewportWidth = viewport.clientWidth;
-
-        const cardCenter =
-            activeCard.offsetLeft + activeCard.offsetWidth / 2;
-
-        const offset = viewportWidth / 2 - cardCenter;
-
-        track.style.transform = `translateX(${offset}px)`;
-    }
+    track.style.transform = `translateX(-${offset}px)`;
+}
 
     /* ==============================================
        5. UPDATE CHARACTER CAROUSEL
