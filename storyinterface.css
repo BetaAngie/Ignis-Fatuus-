@@ -391,7 +391,7 @@ body.journey-page {
     }
 
     .character-container {
-        inset-bottom: 0;
+        margin-bottom: 0;
         bottom: 170px;
     }
 
