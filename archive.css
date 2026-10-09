@@ -62,7 +62,7 @@ body.evidence-page {
     gap: 10px;
     padding: 10px 0;
 
-    color: #c5b6db;
+    color: #acd5e7;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-decoration: none;
@@ -146,13 +146,13 @@ body.evidence-page {
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border-color);
 
-    color: #c9bbdd;
+    color: #a5d3e6;
     font-size: 0.68rem;
     letter-spacing: 0.12em;
 }
 
 .clearance {
-    color: #b29acb;
+    color: #9aa5cb;
     text-align: right;
 }
 
@@ -226,7 +226,7 @@ body.evidence-page {
     opacity: 1;
     transform: scale(1);
     filter: saturate(1);
-    border-color: rgba(216, 180, 254, 0.7);
+    border-color: rgba(180, 197, 254, 0.829);
 
     box-shadow:
         0 0 0 1px rgba(216, 180, 254, 0.05),
@@ -317,7 +317,7 @@ body.evidence-page {
 
     color: var(--text-color);
     background: rgba(12, 16, 32, 0.88);
-    border: 1px solid rgba(216, 180, 254, 0.48);
+    border: 1px solid rgba(180, 206, 254, 0.48);
 
     font-size: 0.56rem;
     letter-spacing: 0.1em;
@@ -436,7 +436,7 @@ body.evidence-page {
     padding: 0;
 
     background: #2f2e50;
-    border: 1px solid #5c578c;
+    border: 1px solid #57658c;
     border-radius: 50%;
 
     cursor: pointer;
@@ -707,7 +707,7 @@ body.evidence-page {
 
 .cast-card > p {
     margin: 15px 0 4px;
-    color: #aaa2bd;
+    color: #b2cff0;
     font-family: Georgia, serif;
     font-size: 0.82rem;
     line-height: 1.7;
