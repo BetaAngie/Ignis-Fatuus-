@@ -793,26 +793,31 @@ body.evidence-page {
 }
 
 
+
 /* =========================================
-   CHARACTER ARCHIVE — ONE CARD AT A TIME
+   CHARACTER ARCHIVE — COMPACT SINGLE CARD
 ========================================= */
 
 #character-carousel {
     width: 100%;
-    max-width: 760px;
+    max-width: 560px;
     margin: 0 auto;
     overflow: hidden;
 }
 
 #carousel-viewport {
     width: 100%;
+    min-width: 0;
     overflow: hidden;
+    padding: 8px 0 16px;
     touch-action: pan-y;
 }
 
 #carousel-track {
     display: flex;
     align-items: stretch;
+    gap: 0;
+    width: 100%;
     transition: transform 0.45s ease;
     will-change: transform;
 }
@@ -820,29 +825,106 @@ body.evidence-page {
 #carousel-track .character-card {
     flex: 0 0 100%;
     width: 100%;
-    min-width: 100%;
+    min-width: 0;
     max-width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 14px;
+    margin: 0;
     box-sizing: border-box;
+
+    opacity: 1;
+    transform: none;
+    filter: none;
 }
 
-/* Keep the archive centered */
-#character-carousel .character-card {
-    margin-left: 0;
-    margin-right: 0;
+/* Compact portrait area */
+#carousel-track .portrait-frame {
+    height: 200px;
+    margin: 10px 0;
 }
 
-/* Prevent neighboring cards from showing */
-#carousel-viewport {
-    position: relative;
+/* Character image */
+#carousel-track .character-portrait {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    object-fit: contain;
 }
 
-/* Mobile adjustments */
+/* Reduce spacing in character information */
+#carousel-track .character-info {
+    flex: initial;
+    padding: 2px 0 12px;
+}
+
+#carousel-track .file-category {
+    margin: 2px 0 6px;
+    font-size: 0.52rem;
+}
+
+#carousel-track .character-name {
+    font-size: 1.1rem;
+}
+
+#carousel-track .character-description {
+    max-width: 100%;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+#carousel-track .file-footer {
+    padding-top: 8px;
+}
+
+/* Blue active-card styling */
+#carousel-track .character-card.is-active {
+    border-color: rgba(169, 199, 232, 0.55);
+    box-shadow:
+        0 0 24px rgba(100, 150, 210, 0.10),
+        0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Keep arrows compact */
+#character-carousel .carousel-arrow {
+    width: 34px;
+    height: 42px;
+    flex: 0 0 34px;
+}
+
+/* Mobile */
 @media (max-width: 600px) {
     #character-carousel {
         max-width: 100%;
     }
 
     #carousel-track .character-card {
-        padding: 18px;
+        padding: 12px;
+    }
+
+    #carousel-track .portrait-frame {
+        height: 175px;
+        margin: 8px 0;
+    }
+
+    #carousel-track .character-name {
+        font-size: 1rem;
+    }
+
+    #carousel-track .character-description {
+        font-size: 0.75rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    #carousel-track .portrait-frame {
+        height: 150px;
+    }
+
+    #character-carousel .carousel-arrow {
+        width: 26px;
+        flex-basis: 26px;
     }
 }
