@@ -1,27 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive | Ignis Fatuus</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#0b0d1b">
+    <meta name="description"
+          content="Begin your journey into the world of Ignis Fatuus.">
+
+    <title>New Journey | Ignis Fatuus</title>
+
+    <link rel="stylesheet" href="storyinterface.css">
+    <script src="prologue.js" defer></script>
 </head>
-<a href="index.html" class="back-menu-btn">← Back to Main Menu</a>
 
-<main class="story-panel">
-    <p id="scene-label">RECOVERED RECORD // 001</p>
+<body class="journey-page">
 
-    <p id="story-text" aria-live="polite">
-        The screen flickers to life. A message appears:
-        "If you can read this, the system has not failed completely."
-    </p>
+    <main class="visual-novel">
 
-    <div id="story-choices" class="story-choices">
-        <button data-choice="inspect">Inspect the terminal</button>
-        <button data-choice="call">Call out into the darkness</button>
-        <button data-choice="wait">Remain silent</button>
-    </div>
+        <!-- Top interface -->
+        <header class="journey-header">
+            <a href="index.html" class="game-logo">IGNIS FATUUS</a>
+            <span class="chapter-label" id="chapter-label">
+                PROLOGUE · 01
+            </span>
+        </header>
 
-    <p id="story-feedback" aria-live="polite"></p>
-    <button id="restart-story" hidden>Restart scene</button>
-</main>
+        <!-- Main story scene -->
+        <section class="story-scene" id="story-scene"
+                 aria-label="Visual novel scene">
 
-<script src="prologue.js"></script>
+            <div class="scene-overlay"></div>
+
+            <div class="scene-heading" id="scene-heading">
+                THE BEGINNING
+            </div>
+
+            <!-- Optional character portrait -->
+            <div class="character-container" id="character-container"
+                 hidden>
+                <img id="character-image" src="" alt="">
+            </div>
+
+            <!-- Story dialogue -->
+            <section class="dialogue-panel" id="dialogue-panel"
+                     aria-live="polite">
+
+                <div class="speaker-name" id="speaker-name">
+                    NARRATION
+                </div>
+
+                <p class="dialogue-text" id="dialogue-text">
+                    The first thing you notice is the silence.
+                </p>
+
+                <div class="dialogue-footer">
+                    <span id="dialogue-counter">01 / 12</span>
+
+                    <button type="button" id="next-button"
+                            class="next-button">
+                        CONTINUE <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </section>
+        </section>
+
+        <!-- Interactive choices -->
+        <section class="choice-section" id="choice-section" hidden>
+            <p class="choice-prompt">WHAT WILL YOU DO?</p>
+            <div class="choice-list" id="choice-list"></div>
+        </section>
+
+        <!-- Ending invitation -->
+        <section class="ending-panel" id="ending-panel" hidden>
+            <p class="ending-eyebrow">YOUR STORY BEGINS HERE</p>
+
+            <h1>The rest is unwritten.</h1>
+
+            <p class="ending-description">
+                The door is open. The world beyond it is waiting.
+                What happens next is no longer yours to read alone.
+            </p>
+
+            <a href="#" id="discord-link" class="journey-button"
+               target="_blank" rel="noopener noreferrer">
+                ENTER THE STORY <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="index.html" class="return-link">
+                Return to Main Menu
+            </a>
+        </section>
+
+        <footer class="journey-footer">
+            <span>AN INTERACTIVE STORY EXPERIENCE</span>
+            <span>✦</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

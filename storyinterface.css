@@ -1,1 +1,425 @@
 
+/* ==================================================
+   IGNIS FATUUS — NEW JOURNEY
+   File: css/new-journey.css
+================================================== */
+
+:root {
+    --background: #0b0d1b;
+    --panel: rgba(12, 14, 30, 0.94);
+    --blue: #a6bbff;
+    --blue-bright: #d2e6ff;
+    --muted: #8286a1;
+    --border: rgba(166, 167, 255, 0.247);
+    --text: #eaebf7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body.journey-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top, #1b1937 0%, transparent 65%),
+        var(--background);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.journey-page button,
+.journey-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.visual-novel {
+    width: min(1100px, 100%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+
+.journey-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.game-logo {
+    color: var(--blue-bright);
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-size: 0.88rem;
+    font-weight: bold;
+}
+
+.chapter-label,
+.journey-footer,
+.ending-eyebrow {
+    color: var(--muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+}
+
+/* Main scene */
+
+.story-scene {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    min-height: 570px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background-color: #11152a;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5, 7, 18, 0.08) 0%,
+            rgba(5, 7, 18, 0.25) 40%,
+            rgba(5, 7, 18, 0.88) 100%
+        ),
+        url("../Images/journey/hallway.webp");
+
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 18px 65px rgba(0, 0, 0, 0.35);
+    transition: background-image 0.5s ease;
+}
+
+.scene-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 20%,
+            rgba(4, 5, 16, 0.35) 100%
+        );
+}
+
+.scene-heading {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    color: rgba(232, 218, 255, 0.85);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-shadow: 0 2px 10px #000;
+}
+
+.character-container {
+    position: absolute;
+    inset: 0 0 130px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.character-container img {
+    height: 100%;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 0 25px rgba(110, 134, 255, 0.2));
+    animation: character-enter 0.6s ease both;
+}
+
+@keyframes character-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dialogue box */
+
+.dialogue-panel {
+    position: relative;
+    z-index: 2;
+    margin: 0 22px 22px;
+    padding: 22px 24px 17px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-top: 2px solid rgba(166, 182, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.speaker-name {
+    margin-bottom: 13px;
+    color: var(--blue);
+    font-size: 0.73rem;
+    font-weight: bold;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+.dialogue-text {
+    min-height: 76px;
+    margin: 0;
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    white-space: pre-line;
+}
+
+.dialogue-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(166, 182, 255, 0.15);
+}
+
+#dialogue-counter {
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+.next-button {
+    padding: 10px 0 10px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--blue-bright);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+}
+
+.next-button span {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+
+.next-button:hover span {
+    transform: translateX(4px);
+}
+
+/* Choices */
+
+.choice-section {
+    padding: 4px 0 14px;
+    animation: fade-in 0.35s ease both;
+}
+
+.choice-prompt {
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin: 0 0 14px;
+}
+
+.choice-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.choice-button {
+    min-height: 64px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    background: rgba(20, 18, 42, 0.75);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.choice-button:hover,
+.choice-button:focus-visible {
+    outline: none;
+    border-color: var(--blue);
+    background: rgba(92, 66, 139, 0.32);
+    transform: translateY(-2px);
+}
+
+/* Ending */
+
+.ending-panel {
+    margin: auto 0;
+    padding: 45px 20px;
+    text-align: center;
+    animation: fade-in 0.8s ease both;
+}
+
+.ending-panel h1 {
+    margin: 15px 0;
+    color: var(--blue-bright);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: normal;
+}
+
+.ending-description {
+    max-width: 520px;
+    margin: 0 auto 28px;
+    color: #c5bfd7;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.journey-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 24px;
+    border: 1px solid var(--blue);
+    background: rgba(82, 58, 128, 0.3);
+    color: var(--blue-bright);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    transition: background 0.2s ease;
+}
+
+.journey-button:hover {
+    background: rgba(80, 100, 174, 0.45);
+}
+
+.return-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.return-link:hover {
+    color: var(--purple-bright);
+}
+
+/* Footer */
+
+.journey-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+}
+
+.journey-footer span:last-child {
+    color: var(--blue);
+}
+
+/* Transitions */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+    .visual-novel {
+        padding: 17px 12px;
+        gap: 15px;
+    }
+
+    .game-logo {
+        font-size: 0.73rem;
+    }
+
+    .chapter-label {
+        font-size: 0.58rem;
+    }
+
+    .story-scene {
+        min-height: 500px;
+        min-height: max(500px, 65svh);
+        background-position: center;
+    }
+
+    .scene-heading {
+        top: 17px;
+        left: 15px;
+        font-size: 0.6rem;
+    }
+
+    .dialogue-panel {
+        margin: 0 10px 10px;
+        padding: 18px 16px 13px;
+    }
+
+    .dialogue-text {
+        min-height: 95px;
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    .character-container {
+        inset-bottom: 0;
+        bottom: 170px;
+    }
+
+    .choice-list {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .choice-button {
+        min-height: 54px;
+        text-align: left;
+        padding: 14px 16px;
+    }
+
+    .ending-panel {
+        padding: 35px 8px;
+    }
+
+    .journey-footer {
+        font-size: 0.55rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
